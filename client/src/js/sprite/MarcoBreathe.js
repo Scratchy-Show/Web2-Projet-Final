@@ -2,9 +2,9 @@ import { TiledImage } from '../TiledImage.js';
 
 export class MarcoBreathe {
     constructor() {
-        let colCount = 4;
+        let colCount = 6;
         let rowCount = 1;
-        let refreshDelay = 150;
+        let refreshDelay = 100;
         let loopColumns = true;
         let scale = 1.7;
 
@@ -22,7 +22,7 @@ export class MarcoBreathe {
             scale,
             this.nodeMarcoBreathe
         );
-        this.TiledImageMarcoBreathe.changeMinMaxInterval(0, 3);
+        this.TiledImageMarcoBreathe.changeMinMaxInterval(0, 5);
 
         // Positions
         this.marcoX = 300;
