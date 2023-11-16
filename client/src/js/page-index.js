@@ -6,6 +6,7 @@ import { MarcoKillForward } from './sprite/MarcoKillForward.js';
 import { MarcoKillFallBack } from './sprite/MarcoKillFallBack.js';
 
 import { animationTerminee } from './sprite/MarcoWakeUp.js';
+import { Chicken } from './sprite/Chicken.js';
 
 export let spriteList = [];
 
@@ -45,6 +46,9 @@ window.addEventListener("load", () => {
             form.dispatchEvent(eventFormDisplay);
         }, 1000);
     }
+
+    /********** Afficher des poulets de manière aléatoire **********/
+    spriteList.push(new Chicken());
 
     /********** Déplace le background **********/
     let background = document.querySelector(".background-image");
