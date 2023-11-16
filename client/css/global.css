@@ -1,0 +1,13 @@
+/********** GENERAL **********/
+@font-face {
+    font-family: "MetalSlug";
+    src: url("../src/font/Metal-Slug-Latino-Regular.ttf") format("truetype");
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
