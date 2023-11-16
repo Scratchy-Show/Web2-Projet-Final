@@ -30,7 +30,7 @@ export class MarcoKillBurn {
     }
 
     tick () {
-        this.TiledImageMarcoKillBurn.tick(this.marcoX+200, this.marcoY);
+        this.TiledImageMarcoKillBurn.tick(this.marcoX, this.marcoY);
 
         return true;
     }

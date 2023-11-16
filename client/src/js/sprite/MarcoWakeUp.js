@@ -33,7 +33,7 @@ export class MarcoWakeUp {
 		this.marcoY = 300;
 
 		/********** Stop l'animation une fois le fomulaire affiché **********/
-		document.querySelector("form").addEventListener('formDisplay', () => {
+		document.querySelector("form").addEventListener("formDisplay", () => {
 			this.TiledImageMarcoWakeUp.setPaused(false); // Démarrer l'animation
 			this.TiledImageMarcoWakeUp.setLooped(false); // Désactiver la boucle
 

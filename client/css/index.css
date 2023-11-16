@@ -39,6 +39,7 @@ body {
     color: transparent;
     background: linear-gradient(180deg, rgba(255,236,122,1) 0%, rgba(246,128,31,1) 43%, rgba(238,43,36,1) 100%);
     -webkit-background-clip: text;
+    background-clip: text;
 }
 
 /********** SECTION FORM **********/

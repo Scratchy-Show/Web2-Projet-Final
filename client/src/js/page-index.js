@@ -41,20 +41,20 @@ window.addEventListener("load", () => {
         // Même durée que l'animation en css
         setTimeout(() => {
             spriteList.push(new MarcoWakeUp());
-            let eventFormDisplay = new Event('formDisplay');
+            let eventFormDisplay = new Event("formDisplay");
             form.dispatchEvent(eventFormDisplay);
         }, 1000);
     }
 
     /********** Déplace le background **********/
-    let background = document.querySelector('.background-image');
+    let background = document.querySelector(".background-image");
     let position = 0;
 
     const moveBackground = () => {
-        if (document.visibilityState === 'visible') {
+        if (document.visibilityState === "visible") {
             let scrollSpeed = 0.5;
             position += scrollSpeed;
-            background.style.transform = `translateX(${-position}px)`;
+            background.style.transform = "translateX(${-position}px)";
             /*console.log(background.style.transform);*/
         }
     }

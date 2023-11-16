@@ -1,4 +1,7 @@
 import { TiledImage } from '../TiledImage.js';
+import { MarcoKillBurn } from './MarcoKillBurn.js';
+
+import { spriteList } from '../page-index.js';
 
 export class MarcoBreathe {
     constructor() {
@@ -23,6 +26,15 @@ export class MarcoBreathe {
             this.nodeMarcoBreathe
         );
         this.TiledImageMarcoBreathe.changeMinMaxInterval(0, 5);
+
+        /********** Marco meurt au click **********/
+        let nodeMarcoBreathe = document.querySelector(".marco-breathe");
+        nodeMarcoBreathe.onclick = () => {
+            spriteList.push(new MarcoKillBurn());
+            spriteList.splice(0, 1);
+            this.nodeMarcoBreathe.remove();
+            console.log(spriteList);
+        }
 
         // Positions
         this.marcoX = 300;
