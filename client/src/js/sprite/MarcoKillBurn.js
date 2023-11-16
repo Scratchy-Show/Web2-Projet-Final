@@ -27,6 +27,9 @@ export class MarcoKillBurn {
         // Positions
         this.marcoX = 300;
         this.marcoY = 300;
+
+        this.TiledImageMarcoKillBurn.setPaused(false); // Démarrer l'animation
+        this.TiledImageMarcoKillBurn.setLooped(false); // Désactiver la boucle
     }
 
     tick () {
