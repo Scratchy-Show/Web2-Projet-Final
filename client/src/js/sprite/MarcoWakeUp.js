@@ -1,6 +1,5 @@
 import { TiledImage } from '../TiledImage.js';
 import { MarcoBreathe } from './MarcoBreathe.js';
-
 import { spriteList } from '../page-index.js';
 
 export class MarcoWakeUp {
@@ -44,7 +43,8 @@ export class MarcoWakeUp {
 
 				if (animationTerminee) {
 					spriteList.push(new MarcoBreathe());
-					spriteList.splice(0, 1);
+					console.log(spriteList);
+					spriteList.splice(4, 1);
 					this.nodeMarcoWakeUp.remove();
 					console.log(spriteList);
 				}

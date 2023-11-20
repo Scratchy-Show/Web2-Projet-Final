@@ -48,6 +48,7 @@ form {
     position: relative;
     top: 350px;
     opacity: 0;
+    z-index: 20;
 }
 
 .form-visible {

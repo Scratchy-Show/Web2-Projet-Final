@@ -1,12 +1,6 @@
 import {signin} from './chat-api.js';
-import { MarcoWakeUp } from './sprite/MarcoWakeUp.js';
-import { MarcoBreathe } from './sprite/MarcoBreathe.js';
-import { MarcoKillBurn } from './sprite/MarcoKillBurn.js';
-import { MarcoKillForward } from './sprite/MarcoKillForward.js';
-import { MarcoKillFallBack } from './sprite/MarcoKillFallBack.js';
-
-import { animationTerminee } from './sprite/MarcoWakeUp.js';
 import { Chicken } from './sprite/Chicken.js';
+import { MarcoWakeUp } from './sprite/MarcoWakeUp.js';
 
 export let spriteList = [];
 
@@ -38,7 +32,7 @@ window.addEventListener("load", () => {
         form.classList.add("form-visible");
 
 
-        /********** Animer Marco quand l'animation du formualire est terminée **********/
+        /********** Réveiller Marco quand l'animation du formualire est terminée **********/
         // Même durée que l'animation en css
         setTimeout(() => {
             spriteList.push(new MarcoWakeUp());
@@ -48,7 +42,10 @@ window.addEventListener("load", () => {
     }
 
     /********** Afficher des poulets de manière aléatoire **********/
-    spriteList.push(new Chicken());
+    for (let i = 0; i < 4; i++) {
+        spriteList.push(new Chicken(i));
+    } 
+    
 
     /********** Déplace le background **********/
     let background = document.querySelector(".background-image");
@@ -59,7 +56,6 @@ window.addEventListener("load", () => {
             let scrollSpeed = 0.5;
             position += scrollSpeed;
             background.style.transform = "translateX(${-position}px)";
-            /*console.log(background.style.transform);*/
         }
     }
     setInterval(moveBackground, 30);
