@@ -27,7 +27,7 @@ export class MarcoKillForward {
 
         // Positions
         this.marcoX = 300;
-        this.marcoY = 300;
+        this.marcoY = window.innerHeight - 180;
     }
 
     tick () {

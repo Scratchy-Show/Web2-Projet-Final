@@ -7,7 +7,7 @@ export class MarcoBreathe {
     constructor() {
         let colCount = 6;
         let rowCount = 1;
-        let refreshDelay = 100;
+        let refreshDelay = 150;
         let loopColumns = true;
         let scale = 1.7;
 
@@ -38,7 +38,7 @@ export class MarcoBreathe {
 
         // Positions
         this.marcoX = 300;
-        this.marcoY = 300;
+        this.marcoY = window.innerHeight - 180;
     }
 
     tick () {
