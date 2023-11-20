@@ -41,8 +41,8 @@ window.addEventListener("load", () => {
         }, 1000);
     }
 
-    /********** Afficher des poulets de manière aléatoire **********/
-    for (let i = 0; i < 4; i++) {
+    /********** Ajoute des poulets **********/
+    for (let i = 0; i < 3; i++) {
         spriteList.push(new Chicken(i));
     } 
     

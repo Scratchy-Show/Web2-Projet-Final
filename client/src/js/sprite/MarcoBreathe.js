@@ -1,5 +1,6 @@
 import { TiledImage } from '../TiledImage.js';
 import { MarcoKillBurn } from './MarcoKillBurn.js';
+import { Soldier } from './Soldier.js';
 
 import { spriteList } from '../page-index.js';
 
@@ -26,6 +27,12 @@ export class MarcoBreathe {
             this.nodeMarcoBreathe
         );
         this.TiledImageMarcoBreathe.changeMinMaxInterval(0, 5);
+
+        /********** Ajoute des soldats **********/
+        for (let i = 0; i < 5; i++) {
+            spriteList.push(new Soldier());
+            console.log(spriteList);
+        } 
 
         /********** Marco meurt au click **********/
         let nodeMarcoBreathe = document.querySelector(".marco-breathe");
