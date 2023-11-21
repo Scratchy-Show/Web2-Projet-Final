@@ -7,6 +7,7 @@ export class SoldierFear {
 		let refreshDelay = 100;
 		let loopColumns = true;
         let scale = 1.7;
+		this.animationTerminee = false;
         this.soldierX = x;
         this.soldierY = y;
         this.initialDirection = direction * -1;
@@ -31,15 +32,25 @@ export class SoldierFear {
         // Conserve la même direction que le soldat d'origine
         this.direction = this.initialDirection;
 
-        if (this.direction === -1) {
-            this.nodeSoldierFear.style.transform = 'scaleX(-1)';
-        }
+		if (this.direction !== 1) {
+			this.nodeSoldierFear.style.transform = 'scaleX(-1)';
+		}
 
         // Désactive la boucle
         this.TiledImageSoldierFear.setLooped(false);
+
+		// Délais de l'animation
+		setTimeout(() => {
+            this.animationTerminee = true;
+        }, 1000);
 	}
 
 	tick () {
+		// Vérifie si l'animation est terminée
+		if (this.animationTerminee) {
+			return false;
+		}
+
         // Déplacement
         this.soldierX += this.speed * this.direction;
 
