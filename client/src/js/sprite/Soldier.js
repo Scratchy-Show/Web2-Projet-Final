@@ -1,16 +1,19 @@
 import { TiledImage } from '../TiledImage.js';
+import { SoldierSlowMotion } from './SoldierSlowMotion.js';
+
+import { spriteList } from '../page-index.js';
 
 export class Soldier {
-	constructor() {
+	constructor(marcoX) {
 		let colCount = 12;
-        let colCountSlowMotion = 4;
 		let rowCount = 1;
 		let refreshDelay = 100;
 		let loopColumns = true;
         let scale = 1.7;
         this.speed = Math.random() * 3 + 1;
+        this.marcoX = marcoX;
 
-        /***** SPRITESHEET - RUN  *****/
+        /***** SPRITESHEET - SOLDIER RUN  *****/
 		this.nodeSoldier = document.createElement("div");
         this.nodeSoldier.classList.add("soldier");
 		document.querySelector("main").append(this.nodeSoldier);
@@ -38,24 +41,15 @@ export class Soldier {
 
         // Définis aléatoirement z-index
         this.nodeSoldier.style.zIndex = Math.random() > 0.5 ? 10 : 20;
-
-
-        /***** SPRITESHEET - SLOW MOTION  *****/
-		this.nodeSoldierSlowMotion = document.createElement("div");
-        this.nodeSoldierSlowMotion.classList.add("soldier-slow-motion");
-		document.querySelector("main").append(this.nodeSoldierSlowMotion);
-
-		this.TiledImageSoldierSlowMotion = new TiledImage(
-			"./img/soldier-slow-motion.png",
-			colCountSlowMotion,
-			rowCount,
-			refreshDelay,
-			loopColumns,
-			scale,
-			this.nodeSoldierSlowMotion
-		);
-        this.TiledImageSoldierSlowMotion.changeMinMaxInterval(0, 3);
 	}
+
+    // Vérifie si un soldat est à côté de Marco
+    isNextToMarco = () => {
+        let distance = 70;
+
+        let distanceX = Math.abs(this.soldierX - this.marcoX);
+        return distanceX <= distance;
+    }
 
 	tick () {
         // Déplacement
@@ -68,6 +62,19 @@ export class Soldier {
         // Si le soldat a traversé l'écran, réinitialise sa position
         if ((this.direction === 1 && this.soldierX > window.innerWidth + 100) || (this.direction === -1 && this.soldierX < -100)) {
             this.soldierX = this.direction === 1 ? -100 : window.innerWidth + 100; // Réapparait du côté opposé
+        }
+
+        // Si un soldat est à côté de Marco
+        if (this.isNextToMarco()) {
+            spriteList.push(new SoldierSlowMotion(this.soldierX, this.soldierY, this.direction));
+
+            let index = spriteList.indexOf(this);
+            if (index !== -1) {
+                spriteList.splice(index, 1);
+            }
+
+            this.nodeSoldier.remove();
+            console.log(spriteList);
         }
 
 		this.TiledImageSoldier.tick(this.soldierX, this.soldierY);

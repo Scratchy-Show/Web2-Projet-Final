@@ -43,10 +43,13 @@ export class MarcoWakeUp {
 
 				if (animationTerminee) {
 					spriteList.push(new MarcoBreathe());
-					console.log(spriteList);
-					spriteList.splice(3, 1);
+
+					let index = spriteList.indexOf(this);
+					if (index !== -1) {
+						spriteList.splice(index, 1);
+					}
+
 					this.nodeMarcoWakeUp.remove();
-					console.log(spriteList);
 				}
 			}, 2150);
 		});
