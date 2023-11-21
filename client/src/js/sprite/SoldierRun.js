@@ -1,9 +1,8 @@
 import { TiledImage } from '../TiledImage.js';
 import { SoldierSlowMotion } from './SoldierSlowMotion.js';
-
 import { spriteList } from '../page-index.js';
 
-export class Soldier {
+export class SoldierRun {
 	constructor(marcoX) {
 		let colCount = 12;
 		let rowCount = 1;

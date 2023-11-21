@@ -1,6 +1,5 @@
 import { TiledImage } from '../TiledImage.js';
 import { SoldierFear } from './SoldierFear.js';
-
 import { spriteList } from '../page-index.js';
 
 export class SoldierWaiting {

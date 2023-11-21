@@ -1,6 +1,6 @@
 import { TiledImage } from '../TiledImage.js';
 import { MarcoKillForward } from './MarcoKillForward.js';
-import { Soldier } from './Soldier.js';
+import { SoldierRun } from './SoldierRun.js';
 
 import { spriteList } from '../page-index.js';
 
@@ -49,7 +49,7 @@ export class MarcoBreathe {
         /********** Ajoute des soldats avec un délai **********/
         for (let i = 0; i < 6; i++) {
             setTimeout(() => {
-                spriteList.push(new Soldier(this.marcoX));
+                spriteList.push(new SoldierRun(this.marcoX));
             }, i * 2000);
         }
     }

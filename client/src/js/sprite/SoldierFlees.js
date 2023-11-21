@@ -1,6 +1,5 @@
 import { TiledImage } from '../TiledImage.js';
-import { Soldier } from './Soldier.js';
-
+import { SoldierRun } from './SoldierRun.js';
 import { spriteList } from '../page-index.js';
 
 export class SoldierFlees {
@@ -44,7 +43,7 @@ export class SoldierFlees {
             (this.direction === -1 && this.soldierX < -100)
         ) {
             setTimeout(() => {
-                spriteList.push(new Soldier(this.marcoX));
+                spriteList.push(new SoldierRun(this.marcoX));
             }, 2500);
             
             let index = spriteList.indexOf(this);
@@ -53,7 +52,6 @@ export class SoldierFlees {
             }
 
             this.nodeSoldierFlees.remove();
-            console.log(spriteList);
         }
 
         this.TiledImageSoldierFlees.tick(this.soldierX, this.soldierY);

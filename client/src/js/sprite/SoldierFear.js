@@ -1,6 +1,5 @@
 import { TiledImage } from '../TiledImage.js';
 import { SoldierFlees } from './SoldierFlees.js';
-
 import { spriteList } from '../page-index.js';
 
 export class SoldierFear {
@@ -54,7 +53,6 @@ export class SoldierFear {
                 }
         
                 this.nodeSoldierFear.remove();
-				console.log(spriteList);
             }
         }, 1500);
 	}

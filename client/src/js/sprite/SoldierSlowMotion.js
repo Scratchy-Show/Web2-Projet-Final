@@ -1,6 +1,5 @@
 import { TiledImage } from '../TiledImage.js';
 import { SoldierWaiting } from './SoldierWaiting.js';
-
 import { spriteList } from '../page-index.js';
 
 export class SoldierSlowMotion {
