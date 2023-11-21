@@ -1,4 +1,7 @@
 import { TiledImage } from '../TiledImage.js';
+import { SoldierWaiting } from './SoldierWaiting.js';
+
+import { spriteList } from '../page-index.js';
 
 export class SoldierSlowMotion {
 	constructor(x, y, direction) {
@@ -7,10 +10,11 @@ export class SoldierSlowMotion {
 		let refreshDelay = 100;
 		let loopColumns = true;
         let scale = 1.7;
+        let animationTerminee = false;
         this.soldierX = x;
         this.soldierY = y;
 
-        /***** SPRITESHEET - SLOW MOTION  *****/
+        /***** SPRITESHEET - SOLDIER SLOW MOTION  *****/
 		this.nodeSoldierSlowMotion = document.createElement("div");
         this.nodeSoldierSlowMotion.classList.add("soldier-slow-motion");
 		document.querySelector("main").append(this.nodeSoldierSlowMotion);
@@ -32,8 +36,24 @@ export class SoldierSlowMotion {
             this.nodeSoldierSlowMotion.style.transform = 'scaleX(-1)';
         }
 
-         // Désactiver la boucle
+        // Désactiver la boucle
         this.TiledImageSoldierSlowMotion.setLooped(false);
+
+        // Délais de l'animation
+        setTimeout(() => {
+            animationTerminee = true;
+
+            if (animationTerminee) {
+                spriteList.push(new SoldierWaiting(this.soldierX, this.soldierY, this.direction));
+                
+                let index = spriteList.indexOf(this);
+                if (index !== -1) {
+                    spriteList.splice(index, 1);
+                }
+        
+                this.nodeSoldierSlowMotion.remove();
+            }
+        }, 400);
 	}
 
 	tick () {

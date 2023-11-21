@@ -32,9 +32,13 @@ export class MarcoBreathe {
         let nodeMarcoBreathe = document.querySelector(".marco-breathe");
         nodeMarcoBreathe.onclick = () => {
             spriteList.push(new MarcoKillBurn());
-            spriteList.splice(0, 1);
+
+            let index = spriteList.indexOf(this);
+            if (index !== -1) {
+                spriteList.splice(index, 1);
+            }
+
             this.nodeMarcoBreathe.remove();
-            console.log(spriteList);
         }
 
         // Positions
@@ -48,7 +52,6 @@ export class MarcoBreathe {
         for (let i = 0; i < 5; i++) {
             setTimeout(() => {
                 spriteList.push(new Soldier(this.marcoX));
-                console.log(spriteList);
             }, i * 2000);
         }
     }

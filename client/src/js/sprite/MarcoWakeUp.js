@@ -38,7 +38,6 @@ export class MarcoWakeUp {
 
 			// Délais de l'animation
 			setTimeout(() => {
-				console.log("Fin de l'animation MarcoWakeUp");
 				animationTerminee = true;
 
 				if (animationTerminee) {

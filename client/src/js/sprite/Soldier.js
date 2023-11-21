@@ -74,7 +74,6 @@ export class Soldier {
             }
 
             this.nodeSoldier.remove();
-            console.log(spriteList);
         }
 
 		this.TiledImageSoldier.tick(this.soldierX, this.soldierY);
