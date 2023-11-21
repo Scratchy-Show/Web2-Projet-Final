@@ -21,7 +21,7 @@ export class SoldierWaiting {
 		document.querySelector("main").append(this.nodeSoldierWaiting);
 
 		this.TiledImageSoldierWaiting= new TiledImage(
-			"./img/soldier-waitting.png",
+			"./img/soldier-waiting.png",
 			colCount,
 			rowCount,
 			refreshDelay,
