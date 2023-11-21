@@ -52,7 +52,6 @@ export class SoldierWaiting {
 				}
 		
 				this.nodeSoldierWaiting.remove();
-				console.log(spriteList);
 			}
 		}, 1000);
 	}

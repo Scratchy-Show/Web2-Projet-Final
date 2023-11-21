@@ -10,7 +10,7 @@ export class Soldier {
 		let refreshDelay = 100;
 		let loopColumns = true;
         let scale = 1.7;
-        this.speed = Math.random() * 3 + 1;
+        this.speed = Math.random() * 4 + 2;
         this.marcoX = marcoX;
 
         /***** SPRITESHEET - SOLDIER RUN  *****/
