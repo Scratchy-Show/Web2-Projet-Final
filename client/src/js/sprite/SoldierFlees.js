@@ -43,14 +43,17 @@ export class SoldierFlees {
             (this.direction === 1 && this.soldierX > window.innerWidth + 100) ||
             (this.direction === -1 && this.soldierX < -100)
         ) {
-            spriteList.push(new Soldier(this.marcoX));
-
+            setTimeout(() => {
+                spriteList.push(new Soldier(this.marcoX));
+            }, 2500);
+            
             let index = spriteList.indexOf(this);
             if (index !== -1) {
                 spriteList.splice(index, 1);
             }
 
             this.nodeSoldierFlees.remove();
+            console.log(spriteList);
         }
 
         this.TiledImageSoldierFlees.tick(this.soldierX, this.soldierY);

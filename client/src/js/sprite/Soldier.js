@@ -10,7 +10,7 @@ export class Soldier {
 		let refreshDelay = 100;
 		let loopColumns = true;
         let scale = 1.7;
-        this.speed = Math.random() * 6 + 3;
+        this.speed = Math.random() * 6 + 2.5;
         this.marcoX = marcoX;
         this.distanceMax = Math.random() * 50; // Gére l'écart maximum
 
