@@ -41,7 +41,7 @@ export class MarcoWakeUp {
 				animationTerminee = true;
 
 				if (animationTerminee) {
-					spriteList.push(new MarcoBreathe());
+					spriteList.push(new MarcoBreathe(this.marcoX, this.marcoY));
 
 					let index = spriteList.indexOf(this);
 					if (index !== -1) {

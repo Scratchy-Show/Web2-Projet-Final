@@ -1,16 +1,18 @@
 import { TiledImage } from '../TiledImage.js';
-import { MarcoKillBurn } from './MarcoKillBurn.js';
+import { MarcoKillForward } from './MarcoKillForward.js';
 import { Soldier } from './Soldier.js';
 
 import { spriteList } from '../page-index.js';
 
 export class MarcoBreathe {
-    constructor() {
+    constructor(marcoX, marcoY) {
         let colCount = 6;
         let rowCount = 1;
         let refreshDelay = 150;
         let loopColumns = true;
         let scale = 1.7;
+        this.marcoX = marcoX;
+        this.marcoY = marcoY;
 
         /***** SPRITESHEET - BREATHE  *****/
         this.nodeMarcoBreathe = document.createElement("div");
@@ -31,7 +33,7 @@ export class MarcoBreathe {
         /********** Marco meurt au click **********/
         let nodeMarcoBreathe = document.querySelector(".marco-breathe");
         nodeMarcoBreathe.onclick = () => {
-            spriteList.push(new MarcoKillBurn());
+            spriteList.push(new MarcoKillForward(this.marcoX, this.marcoY));
 
             let index = spriteList.indexOf(this);
             if (index !== -1) {
@@ -40,10 +42,6 @@ export class MarcoBreathe {
 
             this.nodeMarcoBreathe.remove();
         }
-
-        // Positions
-        this.marcoX = 300;
-        this.marcoY = window.innerHeight - 180;
 
         // Définis z-index
         this.nodeMarcoBreathe.style.zIndex = 20;

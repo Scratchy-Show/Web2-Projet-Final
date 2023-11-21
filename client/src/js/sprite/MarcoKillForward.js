@@ -1,12 +1,14 @@
 import { TiledImage } from '../TiledImage.js';
 
 export class MarcoKillForward {
-    constructor() {
+    constructor(marcoX, marcoY) {
         let colCount = 19;
         let rowCount = 1;
         let refreshDelay = 100;
         let loopColumns = true;
         let scale = 1.7;
+        this.marcoX = marcoX;
+        this.marcoY = marcoY;
 
         /***** SPRITESHEET - KILL FORWARD  *****/
         this.nodeMarcoKillForward = document.createElement("div");
@@ -24,14 +26,11 @@ export class MarcoKillForward {
         );
         this.TiledImageMarcoKillForward.changeMinMaxInterval(0, 18);
 
-
-        // Positions
-        this.marcoX = 300;
-        this.marcoY = window.innerHeight - 180;
+        this.TiledImageMarcoKillForward.setLooped(false); // Désactiver la boucle
     }
 
     tick () {
-        this.TiledImageMarcoKillForward.tick(this.marcoX+400, this.marcoY);
+        this.TiledImageMarcoKillForward.tick(this.marcoX, this.marcoY);
 
         return true;
     }
