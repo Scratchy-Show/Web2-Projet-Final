@@ -44,7 +44,7 @@ export class MarcoWakeUp {
 				if (animationTerminee) {
 					spriteList.push(new MarcoBreathe());
 					console.log(spriteList);
-					spriteList.splice(4, 1);
+					spriteList.splice(3, 1);
 					this.nodeMarcoWakeUp.remove();
 					console.log(spriteList);
 				}

@@ -28,12 +28,6 @@ export class MarcoBreathe {
         );
         this.TiledImageMarcoBreathe.changeMinMaxInterval(0, 5);
 
-        /********** Ajoute des soldats **********/
-        for (let i = 0; i < 5; i++) {
-            spriteList.push(new Soldier());
-            console.log(spriteList);
-        } 
-
         /********** Marco meurt au click **********/
         let nodeMarcoBreathe = document.querySelector(".marco-breathe");
         nodeMarcoBreathe.onclick = () => {
@@ -46,6 +40,17 @@ export class MarcoBreathe {
         // Positions
         this.marcoX = 300;
         this.marcoY = window.innerHeight - 180;
+
+        // Définis z-index
+        this.nodeMarcoBreathe.style.zIndex = 20;
+
+        /********** Ajoute des soldats avec un délai **********/
+        for (let i = 0; i < 5; i++) {
+            setTimeout(() => {
+                spriteList.push(new Soldier(this.marcoX));
+                console.log(spriteList);
+            }, i * 2000);
+        }
     }
 
     tick () {

@@ -31,7 +31,6 @@ window.addEventListener("load", () => {
         form.style.display = "block";
         form.classList.add("form-visible");
 
-
         /********** Réveiller Marco quand l'animation du formualire est terminée **********/
         // Même durée que l'animation en css
         setTimeout(() => {
@@ -46,7 +45,6 @@ window.addEventListener("load", () => {
         spriteList.push(new Chicken(i));
     } 
     
-
     /********** Déplace le background **********/
     let background = document.querySelector(".background-image");
     let position = 0;
