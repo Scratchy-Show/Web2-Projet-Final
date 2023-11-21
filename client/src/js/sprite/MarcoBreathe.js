@@ -49,7 +49,7 @@ export class MarcoBreathe {
         this.nodeMarcoBreathe.style.zIndex = 20;
 
         /********** Ajoute des soldats avec un délai **********/
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 6; i++) {
             setTimeout(() => {
                 spriteList.push(new Soldier(this.marcoX));
             }, i * 2000);

@@ -1,7 +1,10 @@
 import { TiledImage } from '../TiledImage.js';
+import { SoldierFlees } from './SoldierFlees.js';
+
+import { spriteList } from '../page-index.js';
 
 export class SoldierFear {
-	constructor(x, y, direction) {
+	constructor(x, y, direction, marcoX) {
 		let colCount = 14;
 		let rowCount = 1;
 		let refreshDelay = 100;
@@ -10,8 +13,9 @@ export class SoldierFear {
 		this.animationTerminee = false;
         this.soldierX = x;
         this.soldierY = y;
-        this.initialDirection = direction * -1;
+        this.direction = direction * -1;
         this.speed = 5;
+		this.marcoX = marcoX;
 
         /***** SPRITESHEET - SOLDIER FEAR  *****/
 		this.nodeSoldierFear = document.createElement("div");
@@ -30,8 +34,6 @@ export class SoldierFear {
         this.TiledImageSoldierFear.changeMinMaxInterval(0, 13);
 
         // Conserve la même direction que le soldat d'origine
-        this.direction = this.initialDirection;
-
 		if (this.direction !== 1) {
 			this.nodeSoldierFear.style.transform = 'scaleX(-1)';
 		}
@@ -42,7 +44,19 @@ export class SoldierFear {
 		// Délais de l'animation
 		setTimeout(() => {
             this.animationTerminee = true;
-        }, 1000);
+
+			if (this.animationTerminee) {
+                spriteList.push(new SoldierFlees(this.soldierX, this.soldierY, this.direction, this.marcoX));
+                
+                let index = spriteList.indexOf(this);
+                if (index !== -1) {
+                    spriteList.splice(index, 1);
+                }
+        
+                this.nodeSoldierFear.remove();
+				console.log(spriteList);
+            }
+        }, 1500);
 	}
 
 	tick () {

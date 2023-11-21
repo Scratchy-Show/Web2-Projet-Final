@@ -10,8 +10,9 @@ export class Soldier {
 		let refreshDelay = 100;
 		let loopColumns = true;
         let scale = 1.7;
-        this.speed = Math.random() * 8 + 3;
+        this.speed = Math.random() * 6 + 3;
         this.marcoX = marcoX;
+        this.distanceMax = Math.random() * 50; // Gére l'écart maximum
 
         /***** SPRITESHEET - SOLDIER RUN  *****/
 		this.nodeSoldier = document.createElement("div");
@@ -45,7 +46,7 @@ export class Soldier {
 
     // Vérifie si un soldat est à côté de Marco
     isNextToMarco = () => {
-        let distance = 70;
+        let distance = 70 + this.distanceMax;
 
         let distanceX = Math.abs(this.soldierX - this.marcoX);
         return distanceX <= distance;
@@ -66,7 +67,7 @@ export class Soldier {
 
         // Si un soldat est à côté de Marco
         if (this.isNextToMarco()) {
-            spriteList.push(new SoldierSlowMotion(this.soldierX, this.soldierY, this.direction));
+            spriteList.push(new SoldierSlowMotion(this.soldierX, this.soldierY, this.direction, this.marcoX));
 
             let index = spriteList.indexOf(this);
             if (index !== -1) {
