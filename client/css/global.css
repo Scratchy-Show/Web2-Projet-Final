@@ -11,3 +11,13 @@
     list-style: none;
     text-decoration: none;
 }
+
+body {
+    overflow: hidden;
+    font-family: 'MetalSlug', sans-serif;
+}
+
+#api-message {
+    color: red;
+    overflow-wrap: break-word;
+}

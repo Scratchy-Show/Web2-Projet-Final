@@ -1,0 +1,57 @@
+/********** BACKGROUND **********/
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background-image: url("../img/map2.png");
+    background-size: contain;
+}  
+
+/********** SECTION FORM **********/
+form {
+    position: relative;
+    top: 300px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container-form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 80vh;
+    width: 80%;
+    max-width: 600px;
+    padding: 10px;
+    border: 2px solid #2a3cad;
+    background: #111845a6;
+    box-shadow: 0 20px 50px rgb(23, 32, 90);
+    border-radius: 10px;
+}
+
+.container-form input,
+.container-form button{
+    font-family: 'MetalSlug', sans-serif;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.container-form button{
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: #F04A23;
+}
+
+.container-form button:hover{
+    color: black;
+    background-color: #FDCD01;
+    cursor: pointer;
+}
