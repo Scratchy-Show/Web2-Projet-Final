@@ -26,11 +26,14 @@ window.addEventListener("load", () => {
         }
     }
 
-    /********** Afficher le formulaire **********/
+    /********** Afficher le formulaire et le lien s'enregistrer **********/
     const showForm = () => {
         let form = document.querySelector("form");
         form.style.display = "block";
         form.classList.add("form-visible");
+
+        let link = document.querySelector(".redirection");
+        link.style.display = "block";
 
         /********** Réveiller Marco quand l'animation du formualire est terminée **********/
         // Même durée que l'animation en css

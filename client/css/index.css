@@ -1,6 +1,7 @@
 /********** GENERAL **********/
 body {
     overflow: hidden;
+    font-family: 'MetalSlug', sans-serif;
 }
 
 /********** BACKGROUND **********/
@@ -29,7 +30,6 @@ body {
 }
 
 #title h1 {
-    font-family: 'MetalSlug', sans-serif;
     font-size: 10vw;
     color: transparent;
     background: linear-gradient(180deg, rgba(255,236,122,1) 0%, rgba(246,128,31,1) 43%, rgba(238,43,36,1) 100%);
@@ -123,8 +123,8 @@ form {
 }
 
 .container-form .content input {
-    padding: 10px;
-    border-radius: 25px;
+    padding: 8px;
+    border-radius: 15px;
 }
 
 .container-form .content button {
@@ -146,6 +146,20 @@ form {
     overflow-wrap: break-word;
 }
 
+.redirection {
+    display: none;
+    position: relative;
+    top: 430px;
+    text-align: center;
+    z-index: 20;
+    color: #FDCD01;
+}
+
+.redirection:hover {
+    color: white;
+}
+
+/********** ANIMATIONS **********/
 @keyframes animate {
     0% {
         transform:scaleX(0);
@@ -171,9 +185,4 @@ form {
 @keyframes transition {
     0%   { opacity:0; }
     100% { opacity:1; }
-}
-
-/********** SECTION LINK **********/
-.redirection {
-    display: none;
 }
