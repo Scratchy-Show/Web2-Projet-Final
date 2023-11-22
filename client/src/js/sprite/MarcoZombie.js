@@ -1,4 +1,6 @@
 import { TiledImage } from '../TiledImage.js';
+import { MarcoZombieWaiting } from './MarcoZombieWaiting.js';
+import { spriteList } from '../page-index.js';
 
 export class MarcoZombie {
     constructor(marcoX, marcoY) {
@@ -29,6 +31,22 @@ export class MarcoZombie {
 
         // Désactive la boucle
         this.TiledImageMarcoZombie.setLooped(false);
+
+        // Délais de l'animation
+		setTimeout(() => {
+            this.animationTerminee = true;
+
+			if (this.animationTerminee) {
+                spriteList.push(new MarcoZombieWaiting(this.marcoX, this.marcoY));
+                
+                let index = spriteList.indexOf(this);
+                if (index !== -1) {
+                    spriteList.splice(index, 1);
+                }
+        
+                this.nodeMarcoZombie.remove();
+            }
+        }, 5100);
     }
 
     tick () {
