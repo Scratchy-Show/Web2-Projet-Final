@@ -17,6 +17,7 @@ window.addEventListener("load", () => {
         if (posYUp < LIMIT_POS_Y) {
             posYUp += TITLE_SPEED;
             title.style.top = posYUp + "px";
+
             setTimeout(goDown, 30);
         } else {
             setTimeout(() => {
@@ -46,7 +47,7 @@ window.addEventListener("load", () => {
     } 
     
     /********** Déplace le background **********/
-    let background = document.querySelector(".background-image");
+    /*let background = document.querySelector(".background-image");
     let position = 0;
 
     const moveBackground = () => {
@@ -56,7 +57,7 @@ window.addEventListener("load", () => {
             background.style.transform = "translateX(${-position}px)";
         }
     }
-    setInterval(moveBackground, 30);
+    setInterval(moveBackground, 30);*/
 
     /********** Soumission du formulaire **********/
     document.querySelector("form").onsubmit = function () {

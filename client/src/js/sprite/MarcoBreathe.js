@@ -1,7 +1,6 @@
 import { TiledImage } from '../TiledImage.js';
-import { MarcoKillForward } from './MarcoKillForward.js';
 import { SoldierRun } from './SoldierRun.js';
-
+import { MarcoKillForward } from './MarcoKillForward.js';
 import { spriteList } from '../page-index.js';
 
 export class MarcoBreathe {
@@ -14,9 +13,10 @@ export class MarcoBreathe {
         this.marcoX = marcoX;
         this.marcoY = marcoY;
 
-        /***** SPRITESHEET - BREATHE  *****/
+        /***** SPRITESHEET - MARCO BREATHE  *****/
         this.nodeMarcoBreathe = document.createElement("div");
         this.nodeMarcoBreathe.classList.add("marco-breathe");
+        this.nodeMarcoBreathe.style.zIndex = 20;
         document.querySelector("main").append(this.nodeMarcoBreathe);
 
         this.TiledImageMarcoBreathe = new TiledImage(
@@ -43,13 +43,10 @@ export class MarcoBreathe {
             this.nodeMarcoBreathe.remove();
         }
 
-        // Définis z-index
-        this.nodeMarcoBreathe.style.zIndex = 20;
-
-        /********** Ajoute des soldats avec un délai **********/
+        /********** Ajoute des soldats après un délai **********/
         for (let i = 0; i < 6; i++) {
             setTimeout(() => {
-                spriteList.push(new SoldierRun(this.marcoX));
+                spriteList.push(new SoldierRun(this.marcoX, this.marcoY));
             }, i * 2000);
         }
     }

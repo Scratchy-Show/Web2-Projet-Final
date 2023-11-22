@@ -10,10 +10,10 @@ export class SoldierFear {
 		let loopColumns = true;
         let scale = 1.7;
 		this.animationTerminee = false;
+		this.speed = 5;
         this.soldierX = x;
         this.soldierY = y;
         this.direction = direction * -1;
-        this.speed = 5;
 		this.marcoX = marcoX;
 
         /***** SPRITESHEET - SOLDIER FEAR  *****/
@@ -33,9 +33,8 @@ export class SoldierFear {
         this.TiledImageSoldierFear.changeMinMaxInterval(0, 13);
 
         // Conserve la même direction que le soldat d'origine
-		if (this.direction !== 1) {
+		if (this.direction !== 1)
 			this.nodeSoldierFear.style.transform = 'scaleX(-1)';
-		}
 
         // Désactive la boucle
         this.TiledImageSoldierFear.setLooped(false);
@@ -59,9 +58,8 @@ export class SoldierFear {
 
 	tick () {
 		// Vérifie si l'animation est terminée
-		if (this.animationTerminee) {
+		if (this.animationTerminee)
 			return false;
-		}
 
         // Déplacement
         this.soldierX += this.speed * this.direction;

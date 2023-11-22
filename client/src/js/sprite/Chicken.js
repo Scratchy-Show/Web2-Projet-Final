@@ -42,7 +42,8 @@ export class Chicken{
         // Si le poulet a traversé l'écran, réinitialise sa position
         if (this.posX < -100) {
             this.posX = window.innerWidth;
-            this.posY = Math.random() * (window.innerHeight / 5); // Nouvelle position verticale aléatoire
+            // Nouvelle position verticale aléatoire
+            this.posY = Math.random() * (window.innerHeight / 5);
         }
 
         this.TiledImageChicken.tick(this.posX, this.posY);

@@ -32,11 +32,10 @@ export class SoldierWaiting {
 
         // Conserve la même direction que le soldat d'origine
         this.direction = direction;
-        if (this.direction !== -1) {
+        if (this.direction !== -1)
             this.nodeSoldierWaiting.style.transform = 'scaleX(-1)';
-        }
 
-         // Désactiver la boucle
+        // Désactive la boucle
         this.TiledImageSoldierWaiting.setLooped(false);
 
 		// Délais de l'animation

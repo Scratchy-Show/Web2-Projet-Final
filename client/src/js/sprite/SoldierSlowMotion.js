@@ -32,11 +32,10 @@ export class SoldierSlowMotion {
 
         // Conserve la même direction que le soldat d'origine
         this.direction = direction;
-        if (this.direction !== -1) {
+        if (this.direction !== -1)
             this.nodeSoldierSlowMotion.style.transform = 'scaleX(-1)';
-        }
 
-        // Désactiver la boucle
+        // Désactive la boucle
         this.TiledImageSoldierSlowMotion.setLooped(false);
 
         // Délais de l'animation

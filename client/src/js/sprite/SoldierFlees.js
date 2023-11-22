@@ -10,13 +10,13 @@ export class SoldierFlees {
 		let loopColumns = true;
         let scale = 1.7;
 		this.animationTerminee = false;
+        this.speed = 5;
         this.soldierX = x;
         this.soldierY = y;
         this.direction = direction;
-        this.speed = 5;
         this.marcoX = marcoX;
 
-        /***** SPRITESHEET - SOLDIER FEAR  *****/
+        /***** SPRITESHEET - SOLDIER FLEES  *****/
 		this.nodeSoldierFlees = document.createElement("div");
         this.nodeSoldierFlees.classList.add("soldier-flees");
 		document.querySelector("main").append(this.nodeSoldierFlees);
@@ -37,13 +37,11 @@ export class SoldierFlees {
         // Déplacement
         this.soldierX += this.speed * this.direction;
 
-        // Si le soldat est sorti de l'écran, il est réinitialisé comme Soldier
-        if (
-            (this.direction === 1 && this.soldierX > window.innerWidth + 100) ||
-            (this.direction === -1 && this.soldierX < -100)
-        ) {
+        // Si le soldat est sorti de l'écran, il est réinitialisé comme SoldierRun
+        if ((this.direction === 1 && this.soldierX > window.innerWidth + 100) ||(this.direction === -1 && this.soldierX < -100))
+        {
             setTimeout(() => {
-                spriteList.push(new SoldierRun(this.marcoX));
+                spriteList.push(new SoldierRun(this.marcoX, this.soldierY));
             }, 2500);
             
             let index = spriteList.indexOf(this);

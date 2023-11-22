@@ -10,9 +10,10 @@ export class MarcoZombie {
         this.marcoX = marcoX;
         this.marcoY = marcoY;
 
-        /***** SPRITESHEET - ZOMBIE  *****/
+        /***** SPRITESHEET - MARCO ZOMBIE  *****/
         this.nodeMarcoZombie = document.createElement("div");
         this.nodeMarcoZombie.classList.add("marco-zombie");
+        this.nodeMarcoZombie.style.zIndex = 20;
         document.querySelector("main").append(this.nodeMarcoZombie);
 
         this.TiledImageMarcoZombie= new TiledImage(
@@ -26,7 +27,8 @@ export class MarcoZombie {
         );
         this.TiledImageMarcoZombie.changeMinMaxInterval(0, 46);
 
-        this.TiledImageMarcoZombie.setLooped(false); // Désactiver la boucle
+        // Désactive la boucle
+        this.TiledImageMarcoZombie.setLooped(false);
     }
 
     tick () {

@@ -11,9 +11,10 @@ export class MarcoWakeUp {
 		let scale = 1.7;
 		let animationTerminee = false;
 
-        /***** SPRITESHEET - WAKE-UP  *****/
+        /***** SPRITESHEET - MARCO WAKE-UP  *****/
 		this.nodeMarcoWakeUp = document.createElement("div");
-        this.nodeMarcoWakeUp.classList.add("marco");
+        this.nodeMarcoWakeUp.classList.add("marco-wake-up");
+		this.nodeMarcoWakeUp.style.zIndex = 20;
 		document.querySelector("main").append(this.nodeMarcoWakeUp);
 
 		this.TiledImageMarcoWakeUp = new TiledImage(
@@ -33,8 +34,7 @@ export class MarcoWakeUp {
 
 		/********** Stop l'animation une fois le fomulaire affiché **********/
 		document.querySelector("form").addEventListener("formDisplay", () => {
-			this.TiledImageMarcoWakeUp.setPaused(false); // Démarrer l'animation
-			this.TiledImageMarcoWakeUp.setLooped(false); // Désactiver la boucle
+			this.TiledImageMarcoWakeUp.setLooped(false); // Désactive la boucle
 
 			// Délais de l'animation
 			setTimeout(() => {

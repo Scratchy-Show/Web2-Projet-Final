@@ -13,9 +13,10 @@ export class MarcoKillForward {
         this.marcoX = marcoX;
         this.marcoY = marcoY;
 
-        /***** SPRITESHEET - KILL FORWARD  *****/
+        /***** SPRITESHEET - MARCO KILL FORWARD  *****/
         this.nodeMarcoKillForward = document.createElement("div");
         this.nodeMarcoKillForward.classList.add("marco-kill-forward");
+        this.nodeMarcoKillForward.style.zIndex = 20;
         document.querySelector("main").append(this.nodeMarcoKillForward);
 
         this.TiledImageMarcoKillForward = new TiledImage(
@@ -29,7 +30,8 @@ export class MarcoKillForward {
         );
         this.TiledImageMarcoKillForward.changeMinMaxInterval(0, 18);
 
-        this.TiledImageMarcoKillForward.setLooped(false); // Désactiver la boucle
+        // Désactive la boucle
+        this.TiledImageMarcoKillForward.setLooped(false);
 
         // Délais de l'animation
 		setTimeout(() => {
