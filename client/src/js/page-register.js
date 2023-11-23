@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
             let container = document.querySelector(".background-container");
 
             const moveBackground = () => {
-                let scrollSpeed = 1;
+                let scrollSpeed = 1.2;
                 position -= scrollSpeed;
 
                 if (Math.abs(position) >= screenWidth)

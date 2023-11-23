@@ -37,8 +37,7 @@ export class MarcoBreathe {
             document.querySelector(".index-main").append(this.nodeMarcoBreathe);
 
             // Au click Marco meurt
-            let nodeMarcoBreathe = document.querySelector(".marco-breathe");
-            nodeMarcoBreathe.onclick = () => {
+            document.querySelector(".marco-breathe").onclick = () => {
                 spriteListIndex.push(new MarcoKillForward(this.marcoX, this.marcoY));
 
                 let index = spriteListIndex.indexOf(this);
@@ -68,7 +67,7 @@ export class MarcoBreathe {
                 this.nodeMarcoBreathe.classList.remove("marco-hidden");
             }, 500);
 
-            // Marco court
+            // Marco marche
             setTimeout(() => {
                 spriteListRegister.push(new MarcoWalk(this.marcoX, this.marcoY));
 
@@ -78,12 +77,7 @@ export class MarcoBreathe {
                 }
     
                 this.nodeMarcoBreathe.remove();
-            }, 2000);
-
-            // Au click Marco tire
-            if (document.querySelector(".register-main")) {
-
-            }
+            }, 1950);
         }
     }
 

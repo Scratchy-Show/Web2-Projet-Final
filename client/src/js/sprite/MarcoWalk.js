@@ -1,10 +1,12 @@
 import { TiledImage } from '../TiledImage.js';
+import { MarcoPull } from './MarcoPull.js';
+import { spriteListRegister } from '../page-register.js';
 
 export class MarcoWalk {
     constructor(marcoX, marcoY) {
         let colCount = 6;
         let rowCount = 1;
-        let refreshDelay = 150;
+        let refreshDelay = 100;
         let loopColumns = true;
         let scale = 1.7;
         this.marcoX = marcoX;
@@ -12,7 +14,7 @@ export class MarcoWalk {
 
         /***** SPRITESHEET - MARCO WALK  *****/
         this.nodeMarcoWalk = document.createElement("div");
-        this.nodeMarcoWalk.classList.add("marco-run");
+        this.nodeMarcoWalk.classList.add("marco-walk");
         this.nodeMarcoWalk.style.zIndex = 20;
         document.querySelector(".register-main").append(this.nodeMarcoWalk);
 
@@ -26,6 +28,18 @@ export class MarcoWalk {
             this.nodeMarcoWalk
         );
         this.TiledImageMarcoWalk.changeMinMaxInterval(0, 5);
+
+        /***** Au click Marco tire  *****/
+        document.querySelector(".marco-walk").onclick = () => {
+            spriteListRegister.push(new MarcoPull(this.marcoX, this.marcoY));
+
+            let index = spriteListRegister.indexOf(this);
+            if (index !== -1) {
+                spriteListRegister.splice(index, 1);
+            }
+
+            this.nodeMarcoWalk.remove();
+        }
     }
 
     tick () {
