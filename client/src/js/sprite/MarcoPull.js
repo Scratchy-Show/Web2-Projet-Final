@@ -1,9 +1,10 @@
 import { TiledImage } from '../TiledImage.js';
 import { MarcoWalk } from './MarcoWalk.js';
+import { Bullet } from './Bullet.js';
 import { spriteListRegister } from '../page-register.js';
 
 export class MarcoPull {
-    constructor(marcoX, marcoY) {
+    constructor(marcoX, marcoY, pull) {
         let colCount = 10;
         let rowCount = 1;
         let refreshDelay = 150;
@@ -11,6 +12,7 @@ export class MarcoPull {
         let scale = 1.7;
         this.marcoX = marcoX;
         this.marcoY = marcoY;
+        this.pull = pull;
 
         /***** SPRITESHEET - MARCO PULL  *****/
         this.nodeMarcoPull = document.createElement("div");
@@ -32,6 +34,9 @@ export class MarcoPull {
         // Désactive la boucle
         this.TiledImageMarcoPull.setLooped(false);
 
+        spriteListRegister.push(new Bullet(this.marcoX, this.marcoY, this.pull));
+        
+        // Relance MarcoWalk
         setTimeout(() => {
             spriteListRegister.push(new MarcoWalk(this.marcoX, this.marcoY));
 
