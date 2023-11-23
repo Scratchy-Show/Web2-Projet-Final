@@ -1,7 +1,7 @@
 import { TiledImage } from '../TiledImage.js';
 import { SoldierRun } from './SoldierRun.js';
 import { MarcoKillForward } from './MarcoKillForward.js';
-import { spriteList } from '../page-index.js';
+import { spriteListIndex } from '../page-index.js';
 
 export class MarcoBreathe {
     constructor(marcoX, marcoY) {
@@ -17,7 +17,15 @@ export class MarcoBreathe {
         this.nodeMarcoBreathe = document.createElement("div");
         this.nodeMarcoBreathe.classList.add("marco-breathe");
         this.nodeMarcoBreathe.style.zIndex = 20;
-        document.querySelector("main").append(this.nodeMarcoBreathe);
+        if (document.querySelector(".index-main"))
+            document.querySelector(".index-main").append(this.nodeMarcoBreathe);
+        if (document.querySelector(".register-main")) {
+            this.nodeMarcoBreathe.classList.add("marco-hidden");
+            document.querySelector(".register-main").append(this.nodeMarcoBreathe);
+            setTimeout(() => {
+                this.nodeMarcoBreathe.classList.remove("marco-hidden");
+            }, 500);
+        }
 
         this.TiledImageMarcoBreathe = new TiledImage(
             "./img/marco-breathe.png",
@@ -33,21 +41,23 @@ export class MarcoBreathe {
         /********** Marco meurt au click **********/
         let nodeMarcoBreathe = document.querySelector(".marco-breathe");
         nodeMarcoBreathe.onclick = () => {
-            spriteList.push(new MarcoKillForward(this.marcoX, this.marcoY));
+            spriteListIndex.push(new MarcoKillForward(this.marcoX, this.marcoY));
 
-            let index = spriteList.indexOf(this);
+            let index = spriteListIndex.indexOf(this);
             if (index !== -1) {
-                spriteList.splice(index, 1);
+                spriteListIndex.splice(index, 1);
             }
 
             this.nodeMarcoBreathe.remove();
         }
 
         /********** Ajoute des soldats après un délai **********/
-        for (let i = 0; i < 6; i++) {
-            setTimeout(() => {
-                spriteList.push(new SoldierRun(this.marcoX, this.marcoY));
-            }, i * 2000);
+        if (document.querySelector(".index-main")) {
+            for (let i = 0; i < 6; i++) {
+                setTimeout(() => {
+                    spriteListIndex.push(new SoldierRun(this.marcoX, this.marcoY));
+                }, i * 2000);
+            }
         }
     }
 

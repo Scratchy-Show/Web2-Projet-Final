@@ -72,3 +72,12 @@ main {
     background-color: #FDCD01;
     cursor: pointer;
 }
+
+/********** MARCO **********/
+.marco-hidden {
+    opacity: 0;
+}
+
+.marco-breathe {
+    transition: opacity 1s ease-in-out;
+}

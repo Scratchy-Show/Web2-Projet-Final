@@ -1,6 +1,6 @@
 import { TiledImage } from '../TiledImage.js';
 import { SoldierSlowMotion } from './SoldierSlowMotion.js';
-import { spriteList } from '../page-index.js';
+import { spriteListIndex } from '../page-index.js';
 
 export class SoldierRun {
 	constructor(marcoX, marcoY) {
@@ -18,7 +18,7 @@ export class SoldierRun {
 		this.nodeSoldier = document.createElement("div");
         this.nodeSoldier.classList.add("soldier-run");
         this.nodeSoldier.style.zIndex = Math.random() > 0.5 ? 10 : 20; // z-index aléatoire
-		document.querySelector("main").append(this.nodeSoldier);
+		document.querySelector(".index-main").append(this.nodeSoldier);
 
 		this.TiledImageSoldier = new TiledImage(
 			"./img/soldier-run.png",
@@ -62,11 +62,11 @@ export class SoldierRun {
 
         // Si un soldat est à côté de Marco
         if (this.isNextToMarco()) {
-            spriteList.push(new SoldierSlowMotion(this.soldierX, this.soldierY, this.direction, this.marcoX));
+            spriteListIndex.push(new SoldierSlowMotion(this.soldierX, this.soldierY, this.direction, this.marcoX));
 
-            let index = spriteList.indexOf(this);
+            let index = spriteListIndex.indexOf(this);
             if (index !== -1) {
-                spriteList.splice(index, 1);
+                spriteListIndex.splice(index, 1);
             }
 
             this.nodeSoldier.remove();

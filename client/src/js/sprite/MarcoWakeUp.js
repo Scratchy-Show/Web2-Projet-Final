@@ -1,6 +1,6 @@
 import { TiledImage } from '../TiledImage.js';
 import { MarcoBreathe } from './MarcoBreathe.js';
-import { spriteList } from '../page-index.js';
+import { spriteListIndex } from '../page-index.js';
 
 export class MarcoWakeUp {
 	constructor() {
@@ -15,7 +15,7 @@ export class MarcoWakeUp {
 		this.nodeMarcoWakeUp = document.createElement("div");
         this.nodeMarcoWakeUp.classList.add("marco-wake-up");
 		this.nodeMarcoWakeUp.style.zIndex = 20;
-		document.querySelector("main").append(this.nodeMarcoWakeUp);
+		document.querySelector(".index-main").append(this.nodeMarcoWakeUp);
 
 		this.TiledImageMarcoWakeUp = new TiledImage(
 			"./img/marco-wake-up.png",
@@ -41,11 +41,11 @@ export class MarcoWakeUp {
 				animationTerminee = true;
 
 				if (animationTerminee) {
-					spriteList.push(new MarcoBreathe(this.marcoX, this.marcoY));
+					spriteListIndex.push(new MarcoBreathe(this.marcoX, this.marcoY));
 
-					let index = spriteList.indexOf(this);
+					let index = spriteListIndex.indexOf(this);
 					if (index !== -1) {
-						spriteList.splice(index, 1);
+						spriteListIndex.splice(index, 1);
 					}
 
 					this.nodeMarcoWakeUp.remove();

@@ -1,30 +1,58 @@
 import {register} from './chat-api';
+import { MarcoBreathe } from './sprite/MarcoBreathe.js';
+
+export let spriteListRegister = [];
 
 window.addEventListener("load", () => {
+    // Evite que le code soit exécuter en dehors de la page register.html
+    if (document.querySelector(".register-main")) {
 
-    /********** Déplace le background **********/
-    let position = 0;
-    let screenWidth = window.innerWidth;
-    let container = document.querySelector(".background-container");
+        // Positions
+		let marcoX = 300;
+		let marcoY = window.innerHeight - 180;
 
-    const moveBackground = () => {
-        let scrollSpeed = 15;
-        position -= scrollSpeed;
+        /********** Fait apparaître Marco de manière progressive en CSS **********/
+        spriteListRegister.push(new MarcoBreathe(marcoX, marcoY));
+ 
+        /********** Déplace le background **********/
+        let position = 0;
+        let screenWidth = window.innerWidth;
+        let container = document.querySelector(".background-container");
 
-        if (Math.abs(position) >= screenWidth)
-            position = 0;
+        const moveBackground = () => {
+            let scrollSpeed = 0.5;
+            position -= scrollSpeed;
 
-        container.style.transform = "translateX(" + position + "px)";
+            if (Math.abs(position) >= screenWidth)
+                position = 0;
 
-        // Remplace setInterval qui me permet d'éviter de la latence
-        requestAnimationFrame(moveBackground);
-     
-    };
-    // Lancer la première frame
-    moveBackground();
+            container.style.transform = "translateX(" + position + "px)";
 
-    /********** Soumission du formulaire **********/
-    document.querySelector("form").onsubmit = function () {
-        return register(this);
+            // Remplace setInterval qui me permet d'éviter de la latence
+            requestAnimationFrame(moveBackground);
+        
+        };
+        // Lance la première frame
+        moveBackground();
+
+        /********** Soumission du formulaire **********/
+        document.querySelector("form").onsubmit = function () {
+            return register(this);
+        }
+
+        tick();
     }
 })
+
+const tick = () => {
+    for (let i = 0; i < spriteListRegister.length; i++) {
+        let alive = spriteListRegister[i].tick();
+
+        if (!alive) {
+            spriteListRegister.splice(i, 1);
+            i--;
+        }
+    }
+
+    window.requestAnimationFrame(tick);
+}

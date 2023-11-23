@@ -1,6 +1,6 @@
 import { TiledImage } from '../TiledImage.js';
 import { MarcoZombieWaiting } from './MarcoZombieWaiting.js';
-import { spriteList } from '../page-index.js';
+import { spriteListIndex } from '../page-index.js';
 
 export class MarcoZombie {
     constructor(marcoX, marcoY) {
@@ -16,7 +16,7 @@ export class MarcoZombie {
         this.nodeMarcoZombie = document.createElement("div");
         this.nodeMarcoZombie.classList.add("marco-zombie");
         this.nodeMarcoZombie.style.zIndex = 20;
-        document.querySelector("main").append(this.nodeMarcoZombie);
+        document.querySelector(".index-main").append(this.nodeMarcoZombie);
 
         this.TiledImageMarcoZombie= new TiledImage(
             "./img/marco-zombie.png",
@@ -37,11 +37,11 @@ export class MarcoZombie {
             this.animationTerminee = true;
 
 			if (this.animationTerminee) {
-                spriteList.push(new MarcoZombieWaiting(this.marcoX, this.marcoY));
+                spriteListIndex.push(new MarcoZombieWaiting(this.marcoX, this.marcoY));
                 
-                let index = spriteList.indexOf(this);
+                let index = spriteListIndex.indexOf(this);
                 if (index !== -1) {
-                    spriteList.splice(index, 1);
+                    spriteListIndex.splice(index, 1);
                 }
         
                 this.nodeMarcoZombie.remove();

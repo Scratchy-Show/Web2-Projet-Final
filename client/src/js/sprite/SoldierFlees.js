@@ -1,6 +1,6 @@
 import { TiledImage } from '../TiledImage.js';
 import { SoldierRun } from './SoldierRun.js';
-import { spriteList } from '../page-index.js';
+import { spriteListIndex } from '../page-index.js';
 
 export class SoldierFlees {
 	constructor(x, y, direction, marcoX) {
@@ -19,7 +19,7 @@ export class SoldierFlees {
         /***** SPRITESHEET - SOLDIER FLEES  *****/
 		this.nodeSoldierFlees = document.createElement("div");
         this.nodeSoldierFlees.classList.add("soldier-flees");
-		document.querySelector("main").append(this.nodeSoldierFlees);
+		document.querySelector(".index-main").append(this.nodeSoldierFlees);
 
 		this.TiledImageSoldierFlees= new TiledImage(
 			"./img/soldier-flees.png",
@@ -41,12 +41,12 @@ export class SoldierFlees {
         if ((this.direction === 1 && this.soldierX > window.innerWidth + 100) ||(this.direction === -1 && this.soldierX < -100))
         {
             setTimeout(() => {
-                spriteList.push(new SoldierRun(this.marcoX, this.soldierY));
+                spriteListIndex.push(new SoldierRun(this.marcoX, this.soldierY));
             }, 2500);
             
-            let index = spriteList.indexOf(this);
+            let index = spriteListIndex.indexOf(this);
             if (index !== -1) {
-                spriteList.splice(index, 1);
+                spriteListIndex.splice(index, 1);
             }
 
             this.nodeSoldierFlees.remove();

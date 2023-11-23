@@ -1,6 +1,6 @@
 import { TiledImage } from '../TiledImage.js';
 import { SoldierFlees } from './SoldierFlees.js';
-import { spriteList } from '../page-index.js';
+import { spriteListIndex } from '../page-index.js';
 
 export class SoldierFear {
 	constructor(x, y, direction, marcoX) {
@@ -19,7 +19,7 @@ export class SoldierFear {
         /***** SPRITESHEET - SOLDIER FEAR  *****/
 		this.nodeSoldierFear = document.createElement("div");
         this.nodeSoldierFear.classList.add("soldier-fear");
-		document.querySelector("main").append(this.nodeSoldierFear);
+		document.querySelector(".index-main").append(this.nodeSoldierFear);
 
 		this.TiledImageSoldierFear = new TiledImage(
 			"./img/soldier-fear.png",
@@ -44,11 +44,11 @@ export class SoldierFear {
             this.animationTerminee = true;
 
 			if (this.animationTerminee) {
-                spriteList.push(new SoldierFlees(this.soldierX, this.soldierY, this.direction, this.marcoX));
+                spriteListIndex.push(new SoldierFlees(this.soldierX, this.soldierY, this.direction, this.marcoX));
                 
-                let index = spriteList.indexOf(this);
+                let index = spriteListIndex.indexOf(this);
                 if (index !== -1) {
-                    spriteList.splice(index, 1);
+                    spriteListIndex.splice(index, 1);
                 }
         
                 this.nodeSoldierFear.remove();

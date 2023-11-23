@@ -14,7 +14,7 @@ export class MarcoZombieWaiting {
         this.nodeMarcoZombieWainting = document.createElement("div");
         this.nodeMarcoZombieWainting.classList.add("marco-zombie-waiting");
         this.nodeMarcoZombieWainting.style.zIndex = 20;
-        document.querySelector("main").append(this.nodeMarcoZombieWainting);
+        document.querySelector(".index-main").append(this.nodeMarcoZombieWainting);
 
         this.TiledImageMarcoZombieWaiting= new TiledImage(
             "./img/marco-zombie-waiting.png",

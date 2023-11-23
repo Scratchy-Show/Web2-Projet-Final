@@ -2,68 +2,72 @@ import {signin} from './chat-api.js';
 import { Chicken } from './sprite/Chicken.js';
 import { MarcoWakeUp } from './sprite/MarcoWakeUp.js';
 
-export let spriteList = [];
+export let spriteListIndex = [];
 
 window.addEventListener("load", () => {
+    // Evite que le code soit exécuter en dehors de la page index.html
+    if (document.querySelector(".index-main")) {
 
-    /********** Descendre la section title **********/
-    let title = document.getElementById("title");
-    let posYUp = -300; // Position de départ
-    const TITLE_SPEED = 4;
+        /********** Descendre la section title **********/
+        let title = document.getElementById("title");
+        let posYUp = -300; // Position de départ
+        const TITLE_SPEED = 4;
 
-    const goDown = () => {
-        const LIMIT_POS_Y = window.innerHeight / 10; // 1/10 de la hauteur de la fenêtre
+        const goDown = () => {
+            // 1/10 de la hauteur de la fenêtre
+            const LIMIT_POS_Y = window.innerHeight / 10;
 
-        if (posYUp < LIMIT_POS_Y) {
-            posYUp += TITLE_SPEED;
-            title.style.top = posYUp + "px";
+            if (posYUp < LIMIT_POS_Y) {
+                posYUp += TITLE_SPEED;
+                title.style.top = posYUp + "px";
 
-            setTimeout(goDown, 30);
-        } else {
+                setTimeout(goDown, 30);
+            } else {
+                setTimeout(() => {
+                    showForm();
+                }, 1000);
+            }
+        }
+
+        /********** Afficher le formulaire et le lien s'enregistrer **********/
+        const showForm = () => {
+            let form = document.querySelector("form");
+            form.style.display = "block";
+            form.classList.add("form-visible");
+
+            let link = document.querySelector(".redirection");
+            link.style.display = "block";
+
+            /********** Réveiller Marco quand l'animation du formualire est terminée **********/
+            // Même durée que l'animation en css
             setTimeout(() => {
-                showForm();
+                spriteListIndex.push(new MarcoWakeUp());
+                let eventFormDisplay = new Event("formDisplay");
+                form.dispatchEvent(eventFormDisplay);
             }, 1000);
         }
+
+        /********** Ajoute des poulets **********/
+        for (let i = 0; i < 3; i++) {
+            spriteListIndex.push(new Chicken(i));
+        } 
+
+        /********** Soumission du formulaire **********/
+        document.querySelector("form").onsubmit = function () {
+            return signin(this);
+        }
+
+        goDown();
+        tick();
     }
-
-    /********** Afficher le formulaire et le lien s'enregistrer **********/
-    const showForm = () => {
-        let form = document.querySelector("form");
-        form.style.display = "block";
-        form.classList.add("form-visible");
-
-        let link = document.querySelector(".redirection");
-        link.style.display = "block";
-
-        /********** Réveiller Marco quand l'animation du formualire est terminée **********/
-        // Même durée que l'animation en css
-        setTimeout(() => {
-            spriteList.push(new MarcoWakeUp());
-            let eventFormDisplay = new Event("formDisplay");
-            form.dispatchEvent(eventFormDisplay);
-        }, 1000);
-    }
-
-    /********** Ajoute des poulets **********/
-    for (let i = 0; i < 3; i++) {
-        spriteList.push(new Chicken(i));
-    } 
-
-    /********** Soumission du formulaire **********/
-    document.querySelector("form").onsubmit = function () {
-        return signin(this);
-    }
-
-    goDown();
-    tick();
 });
 
 const tick = () => {
-    for (let i = 0; i < spriteList.length; i++) {
-        let alive = spriteList[i].tick();
+    for (let i = 0; i < spriteListIndex.length; i++) {
+        let alive = spriteListIndex[i].tick();
 
         if (!alive) {
-            spriteList.splice(i, 1);
+            spriteListIndex.splice(i, 1);
             i--;
         }
     }

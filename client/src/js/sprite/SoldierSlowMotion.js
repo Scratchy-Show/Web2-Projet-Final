@@ -1,6 +1,6 @@
 import { TiledImage } from '../TiledImage.js';
 import { SoldierWaiting } from './SoldierWaiting.js';
-import { spriteList } from '../page-index.js';
+import { spriteListIndex } from '../page-index.js';
 
 export class SoldierSlowMotion {
 	constructor(x, y, direction, marcoX) {
@@ -17,7 +17,7 @@ export class SoldierSlowMotion {
         /***** SPRITESHEET - SOLDIER SLOW MOTION  *****/
 		this.nodeSoldierSlowMotion = document.createElement("div");
         this.nodeSoldierSlowMotion.classList.add("soldier-slow-motion");
-		document.querySelector("main").append(this.nodeSoldierSlowMotion);
+		document.querySelector(".index-main").append(this.nodeSoldierSlowMotion);
 
 		this.TiledImageSoldierSlowMotion = new TiledImage(
 			"./img/soldier-slow-motion.png",
@@ -43,11 +43,11 @@ export class SoldierSlowMotion {
             animationTerminee = true;
 
             if (animationTerminee) {
-                spriteList.push(new SoldierWaiting(this.soldierX, this.soldierY, this.direction, this.marcoX));
+                spriteListIndex.push(new SoldierWaiting(this.soldierX, this.soldierY, this.direction, this.marcoX));
                 
-                let index = spriteList.indexOf(this);
+                let index = spriteListIndex.indexOf(this);
                 if (index !== -1) {
-                    spriteList.splice(index, 1);
+                    spriteListIndex.splice(index, 1);
                 }
         
                 this.nodeSoldierSlowMotion.remove();
