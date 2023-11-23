@@ -7,7 +7,7 @@ export class MarcoPull {
     constructor(marcoX, marcoY, pull) {
         let colCount = 10;
         let rowCount = 1;
-        let refreshDelay = 150;
+        let refreshDelay = 80;
         let loopColumns = true;
         let scale = 1.7;
         this.marcoX = marcoX;
@@ -46,7 +46,7 @@ export class MarcoPull {
             }
 
             this.nodeMarcoPull.remove();
-        }, 1200);
+        }, 400);
     }
 
     tick () {

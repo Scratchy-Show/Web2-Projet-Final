@@ -1,5 +1,6 @@
 import {register} from './chat-api';
 import { MarcoBreathe } from './sprite/MarcoBreathe.js';
+import { ChaingunRobotActivating } from './sprite/ChaingunRobotActivating.js';
 
 export let spriteListRegister = [];
 
@@ -11,8 +12,11 @@ window.addEventListener("load", () => {
 		let marcoX = 300;
 		let marcoY = window.innerHeight - 180;
 
-        /********** Fait apparaître Marco de manière progressive en CSS **********/
+        // Fait apparaître Marco de manière progressive en CSS
         spriteListRegister.push(new MarcoBreathe(marcoX, marcoY));
+
+        // Affiche le robot
+        spriteListRegister.push(new ChaingunRobotActivating(marcoX, marcoY));
  
         /********** Déplace le background **********/
         // Synchronisé avec MarcoWalk
@@ -22,7 +26,7 @@ window.addEventListener("load", () => {
             let container = document.querySelector(".background-container");
 
             const moveBackground = () => {
-                let scrollSpeed = 1.2;
+                let scrollSpeed = 1;
                 position -= scrollSpeed;
 
                 if (Math.abs(position) >= screenWidth)
