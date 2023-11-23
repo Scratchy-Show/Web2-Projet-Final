@@ -69,6 +69,7 @@ export class MarcoBreathe {
 
             // Marco marche
             setTimeout(() => {
+                
                 spriteListRegister.push(new MarcoWalk(this.marcoX, this.marcoY));
 
                 let index = spriteListRegister.indexOf(this);
@@ -77,6 +78,7 @@ export class MarcoBreathe {
                 }
     
                 this.nodeMarcoBreathe.remove();
+
             }, 1950);
         }
     }

@@ -1,6 +1,7 @@
 import {register} from './chat-api';
 import { MarcoBreathe } from './sprite/MarcoBreathe.js';
 import { ChaingunRobotActivating } from './sprite/ChaingunRobotActivating.js';
+import { viewRobot } from './sprite/ChaingunRobotActivating.js';
 
 export let spriteListRegister = [];
 
@@ -27,6 +28,11 @@ window.addEventListener("load", () => {
 
             const moveBackground = () => {
                 let scrollSpeed = 1;
+
+            // Vérifie si le robot est en vue
+            if (viewRobot)
+                    scrollSpeed = 0;
+
                 position -= scrollSpeed;
 
                 if (Math.abs(position) >= screenWidth)

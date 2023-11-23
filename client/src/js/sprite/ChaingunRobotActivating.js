@@ -1,5 +1,7 @@
 import { TiledImage } from '../TiledImage.js';
 
+export let viewRobot = false
+
 export class ChaingunRobotActivating{
     constructor(x, y) {
         let colCount = 9;
@@ -7,7 +9,6 @@ export class ChaingunRobotActivating{
         let refreshDelay = 150;
         let loopColumns = true;
         let scale = 1.7;
-        this.viewRobot = false
 
         /***** SPRITESHEET - CHAINGUN ROBOT ACTIVATING  *****/
         this.nodeChaingunRobotActivating = document.createElement("div");
@@ -47,7 +48,7 @@ export class ChaingunRobotActivating{
                 // Stop la boucle
                 this.TiledImageChaingunRobotActivating.setLooped(false);
                 
-                this.viewRobot = true;
+                viewRobot = true;
 
                 return false;
             }
