@@ -15,25 +15,29 @@ window.addEventListener("load", () => {
         spriteListRegister.push(new MarcoBreathe(marcoX, marcoY));
  
         /********** Déplace le background **********/
-        let position = 0;
-        let screenWidth = window.innerWidth;
-        let container = document.querySelector(".background-container");
+        // Synchronisé avec MarcoWalk
+        setTimeout(() => {
+            let position = 0;
+            let screenWidth = window.innerWidth;
+            let container = document.querySelector(".background-container");
 
-        const moveBackground = () => {
-            let scrollSpeed = 0.5;
-            position -= scrollSpeed;
+            const moveBackground = () => {
+                let scrollSpeed = 1;
+                position -= scrollSpeed;
 
-            if (Math.abs(position) >= screenWidth)
-                position = 0;
+                if (Math.abs(position) >= screenWidth)
+                    position = 0;
 
-            container.style.transform = "translateX(" + position + "px)";
+                container.style.transform = "translateX(" + position + "px)";
 
-            // Remplace setInterval qui me permet d'éviter de la latence
-            requestAnimationFrame(moveBackground);
+                // Remplace setInterval qui me permet d'éviter de la latence
+                requestAnimationFrame(moveBackground);
+            
+            };
+            // Lance la première frame
+            moveBackground();
+        }, 2050);
         
-        };
-        // Lance la première frame
-        moveBackground();
 
         /********** Soumission du formulaire **********/
         document.querySelector("form").onsubmit = function () {
