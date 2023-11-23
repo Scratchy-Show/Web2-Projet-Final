@@ -13,7 +13,7 @@ main {
     display: flex;
     width: 200%;
     height: 100%;
-    animation: scrollBackground 5s linear infinite;
+    /*animation: scrollBackground 5s linear infinite;*/
 }
 
 .background-image {
@@ -23,6 +23,7 @@ main {
     background-image: url("../img/map2.png");
 }
 
+/*
 @keyframes scrollBackground {
     0% {
         transform: translateX(0);
@@ -31,6 +32,7 @@ main {
         transform: translateX(-50%);
     }
 }
+*/
 
 /********** SECTION FORM **********/
 .container-form{

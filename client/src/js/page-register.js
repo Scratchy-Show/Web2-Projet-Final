@@ -8,19 +8,20 @@ window.addEventListener("load", () => {
     let container = document.querySelector(".background-container");
 
     const moveBackground = () => {
-        if (document.visibilityState === "visible") {
-            let scrollSpeed = 8.5;
-            position -= scrollSpeed;
+        let scrollSpeed = 15;
+        position -= scrollSpeed;
 
-            if (Math.abs(position) >= screenWidth) {
-                position = 0;
-            }
+        if (Math.abs(position) >= screenWidth)
+            position = 0;
 
-            container.style.transform = "translateX(" + position + "px)";
-        }
+        container.style.transform = "translateX(" + position + "px)";
+
+        // Remplace setInterval qui me permet d'éviter de la latence
+        requestAnimationFrame(moveBackground);
+     
     };
-
-    setInterval(moveBackground, 30);
+    // Lancer la première frame
+    moveBackground();
 
     /********** Soumission du formulaire **********/
     document.querySelector("form").onsubmit = function () {
