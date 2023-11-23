@@ -48,19 +48,6 @@ window.addEventListener("load", () => {
     for (let i = 0; i < 3; i++) {
         spriteList.push(new Chicken(i));
     } 
-    
-    /********** Déplace le background **********/
-    /*let background = document.querySelector(".background-image");
-    let position = 0;
-
-    const moveBackground = () => {
-        if (document.visibilityState === "visible") {
-            let scrollSpeed = 0.5;
-            position += scrollSpeed;
-            background.style.transform = "translateX(${-position}px)";
-        }
-    }
-    setInterval(moveBackground, 30);*/
 
     /********** Soumission du formulaire **********/
     document.querySelector("form").onsubmit = function () {
