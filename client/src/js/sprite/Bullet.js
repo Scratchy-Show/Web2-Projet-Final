@@ -63,6 +63,7 @@ export class Bullet{
 
             if (hitRobot) {
                 this.removeBullet();
+                ChaingunRobotWaiting.reduceOpacity();
             } else {
                 this.TiledImageBullet.tick(this.bulletX, this.bulletY);
             }
