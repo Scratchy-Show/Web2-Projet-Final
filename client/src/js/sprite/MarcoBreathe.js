@@ -13,7 +13,6 @@ export class MarcoBreathe {
         let refreshDelay = 150;
         let loopColumns = true;
         let scale = 1.7;
-        this.pull = 0;
         this.marcoX = marcoX;
         this.marcoY = marcoY;
 
@@ -90,8 +89,7 @@ export class MarcoBreathe {
 
             /***** Au click Marco tire  *****/
             document.querySelector(".marco-breathe").onclick = () => {
-                this.pull += 1;
-                spriteListRegister.push(new MarcoPull(this.marcoX, this.marcoY, this.pull));
+                spriteListRegister.push(new MarcoPull(this.marcoX, this.marcoY));
   
                 let index = spriteListRegister.indexOf(this);
                 if (index !== -1) {

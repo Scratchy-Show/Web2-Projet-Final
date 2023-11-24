@@ -11,7 +11,6 @@ export class MarcoWalk {
         let refreshDelay = 90;
         let loopColumns = true;
         let scale = 1.7;
-        this.pull = 0;
         this.marcoX = marcoX;
         this.marcoY = marcoY;
 
@@ -34,8 +33,7 @@ export class MarcoWalk {
 
         /***** Au click Marco tire  *****/
         document.querySelector(".marco-walk").onclick = () => {
-            this.pull += 1;
-            spriteListRegister.push(new MarcoPull(this.marcoX, this.marcoY, this.pull));
+            spriteListRegister.push(new MarcoPull(this.marcoX, this.marcoY));
 
             let index = spriteListRegister.indexOf(this);
             if (index !== -1) {

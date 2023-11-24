@@ -6,7 +6,7 @@ import { spriteListRegister } from '../page-register.js';
 import { viewRobot } from './ChaingunRobotActivating.js';
 
 export class MarcoPull {
-    constructor(marcoX, marcoY, pull) {
+    constructor(marcoX, marcoY) {
         let colCount = 10;
         let rowCount = 1;
         let refreshDelay = 80;
@@ -14,7 +14,6 @@ export class MarcoPull {
         let scale = 1.7;
         this.marcoX = marcoX;
         this.marcoY = marcoY;
-        this.pull = pull;
 
         /***** SPRITESHEET - MARCO PULL  *****/
         this.nodeMarcoPull = document.createElement("div");
@@ -36,7 +35,7 @@ export class MarcoPull {
         // Désactive la boucle
         this.TiledImageMarcoPull.setLooped(false);
 
-        spriteListRegister.push(new Bullet(this.marcoX, this.marcoY, this.pull));
+        spriteListRegister.push(new Bullet(this.marcoX, this.marcoY));
 
         // Affiche de nouveau Marco
         setTimeout(() => {

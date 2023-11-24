@@ -2,7 +2,7 @@ import { TiledImage } from '../TiledImage.js';
 import { spriteListRegister } from '../page-register.js';
 
 export class Bullet{
-    constructor(marcoX, marcoY, pull) {
+    constructor(marcoX, marcoY) {
         let colCount = 1;
         let rowCount = 1;
         let refreshDelay = 100;
@@ -11,11 +11,10 @@ export class Bullet{
         this.speed = 8;
         this.bulletX = marcoX + 100;
         this.bulletY = marcoY + 33;
-        this.pull = pull;
 
         /***** SPRITESHEET - BULLET  *****/
         this.nodeBullet = document.createElement("div");
-        this.nodeBullet.classList.add("bullet-" + pull);
+        this.nodeBullet.classList.add("bullet");
         document.querySelector("main").append(this.nodeBullet);
 
         this.TiledImageBullet = new TiledImage(
