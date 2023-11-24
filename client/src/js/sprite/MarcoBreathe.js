@@ -5,6 +5,7 @@ import { MarcoPull } from './MarcoPull.js';
 import { MarcoKillForward } from './MarcoKillForward.js';
 import { spriteListIndex } from '../page-index.js';
 import { spriteListRegister } from '../page-register.js';
+import { viewRobot } from './ChaingunRobotActivating.js';
 
 export class MarcoBreathe {
     constructor(marcoX, marcoY) {
@@ -63,7 +64,7 @@ export class MarcoBreathe {
             this.nodeMarcoBreathe.classList.add("marco-hidden");
 
             // si robot en vue, l'apparition de départ ne s'applique pas
-            if (document.querySelector(".chaingun-robot-activating"))
+            if (viewRobot)
                 this.nodeMarcoBreathe.classList.remove("marco-hidden");
 
             document.querySelector(".register-main").append(this.nodeMarcoBreathe);

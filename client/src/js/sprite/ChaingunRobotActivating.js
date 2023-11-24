@@ -1,6 +1,8 @@
 import { TiledImage } from '../TiledImage.js';
+import { ChaingunRobotWaiting } from './ChaingunRobotWaiting.js';
+import { spriteListRegister } from '../page-register.js';
 
-export let viewRobot = false
+export let viewRobot;
 
 export class ChaingunRobotActivating{
     constructor(x, y) {
@@ -9,11 +11,12 @@ export class ChaingunRobotActivating{
         let refreshDelay = 150;
         let loopColumns = true;
         let scale = 1.7;
+        this.animationTerminee = false;
 
         /***** SPRITESHEET - CHAINGUN ROBOT ACTIVATING  *****/
         this.nodeChaingunRobotActivating = document.createElement("div");
         this.nodeChaingunRobotActivating.classList.add("chaingun-robot-activating");
-        document.querySelector("main").append(this.nodeChaingunRobotActivating);
+        document.querySelector(".register-main").append(this.nodeChaingunRobotActivating);
 
         this.TiledImageChaingunRobotActivating = new TiledImage(
             "./img/chaingun-robot-activating.png",
@@ -32,6 +35,22 @@ export class ChaingunRobotActivating{
 
         // Stop l'animation
         this.TiledImageChaingunRobotActivating.setPaused(true);
+
+        // Délais de l'animation
+        setTimeout(() => {
+            this.animationTerminee = true;
+
+            if (this.animationTerminee) {
+                spriteListRegister.push(new ChaingunRobotWaiting(this.robotX, this.robotY));
+                
+                let index = spriteListRegister.indexOf(this);
+                if (index !== -1) {
+                    spriteListRegister.splice(index, 1);
+                }
+        
+                this.nodeChaingunRobotActivating.remove();
+            }
+        }, 6300);
 
         this.appearanceRobot();
     }
