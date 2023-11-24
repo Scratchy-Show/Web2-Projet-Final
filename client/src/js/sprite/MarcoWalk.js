@@ -2,7 +2,7 @@ import { TiledImage } from '../TiledImage.js';
 import { MarcoPull } from './MarcoPull.js';
 import { MarcoBreathe } from './MarcoBreathe.js';
 import { spriteListRegister } from '../page-register.js';
-import { viewRobot } from './ChaingunRobotActivating.js';
+import { backgroundMove } from '../page-register.js';
 
 export class MarcoWalk {
     constructor(marcoX, marcoY) {
@@ -59,8 +59,8 @@ export class MarcoWalk {
     tick () {
         this.TiledImageMarcoWalk.tick(this.marcoX, this.marcoY);
 
-        // Si le robot est en vue, Marco s'arrête
-        if (viewRobot) {
+        // Si le background ne bouge pas, Marco s'arrête
+        if (!backgroundMove) {
             this.stopMarco();
         }
 

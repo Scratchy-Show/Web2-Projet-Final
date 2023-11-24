@@ -6,6 +6,7 @@ import { MarcoKillForward } from './MarcoKillForward.js';
 import { spriteListIndex } from '../page-index.js';
 import { spriteListRegister } from '../page-register.js';
 import { viewRobot } from './ChaingunRobotActivating.js';
+import { backgroundMove } from '../page-register.js';
 
 export class MarcoBreathe {
     constructor(marcoX, marcoY) {
@@ -74,35 +75,35 @@ export class MarcoBreathe {
                 this.nodeMarcoBreathe.classList.remove("marco-hidden");
             }, 500);
 
-            // Marco marche en même temps que le background se déplace
-            setTimeout(() => {
-                // Si MarcoWalk n'existe pas
-                if (!document.querySelector(".marco-walk"))
-                    spriteListRegister.push(new MarcoWalk(this.marcoX, this.marcoY));
-
-                let index = spriteListRegister.indexOf(this);
-                if (index !== -1) {
-                    spriteListRegister.splice(index, 1);
-                }
-
-                this.nodeMarcoBreathe.remove();
-            }, 1950);
-
             /***** Au click Marco tire  *****/
             document.querySelector(".marco-breathe").onclick = () => {
                 spriteListRegister.push(new MarcoPull(this.marcoX, this.marcoY));
-  
+
                 let index = spriteListRegister.indexOf(this);
                 if (index !== -1) {
                     spriteListRegister.splice(index, 1);
                 }
-                
+
                 this.nodeMarcoBreathe.remove();
             }
         }
     }
 
     tick () {
+        // Marco marche en même temps que le background se déplace
+        if (backgroundMove) {
+            // Si MarcoWalk n'existe pas
+            if (!document.querySelector(".marco-walk") && backgroundMove)
+                spriteListRegister.push(new MarcoWalk(this.marcoX, this.marcoY));
+
+            let index = spriteListRegister.indexOf(this);
+            if (index !== -1) {
+                spriteListRegister.splice(index, 1);
+            }
+
+            this.nodeMarcoBreathe.remove();
+        }
+
         this.TiledImageMarcoBreathe.tick(this.marcoX, this.marcoY);
 
         return true;

@@ -2,8 +2,10 @@ import {register} from './chat-api';
 import { MarcoBreathe } from './sprite/MarcoBreathe.js';
 import { ChaingunRobotActivating } from './sprite/ChaingunRobotActivating.js';
 import { viewRobot } from './sprite/ChaingunRobotActivating.js';
+import { destroyedRobot } from './sprite/ChaingunRobotDestroyed.js';
 
 export let spriteListRegister = [];
+export let backgroundMove = false;
 
 window.addEventListener("load", () => {
     // Evite que le code soit exécuter en dehors de la page register.html
@@ -27,11 +29,20 @@ window.addEventListener("load", () => {
             let container = document.querySelector(".background-container");
 
             const moveBackground = () => {
+                backgroundMove = true;
                 let scrollSpeed = 1;
 
-            // Si le robot est en vue, le background s'arrête
-            if (viewRobot)
-                    scrollSpeed = 0;
+                // Si le robot est en vue, le background s'arrête
+                if (viewRobot)  {
+                        scrollSpeed = 0;
+                        backgroundMove = false;
+                    }
+
+                // Si le robot est détruit, le background reprend
+                if (destroyedRobot) {
+                    scrollSpeed = 1;
+                    backgroundMove = true;
+                }
 
                 position -= scrollSpeed;
 

@@ -1,5 +1,6 @@
 import { TiledImage } from '../TiledImage.js';
 import { ChaingunRobotWaiting } from './ChaingunRobotWaiting.js';
+import { ChaingunRobotDestroyed } from './ChaingunRobotDestroyed.js';
 import { spriteListRegister } from '../page-register.js';
 
 export class Bullet{
@@ -10,6 +11,8 @@ export class Bullet{
         let loopColumns = true;
         let scale = 1;
         this.speed = 8;
+        this.marcoX = marcoX;
+        this.marcoY = marcoY;
         this.bulletX = marcoX + 100;
         this.bulletY = marcoY + 33;
 
@@ -61,9 +64,23 @@ export class Bullet{
             // Vérifie la collision avec le robot
             let hitRobot = this.checkCollisionWithRobot();
 
+            // Collision
             if (hitRobot) {
                 this.removeBullet();
                 ChaingunRobotWaiting.reduceOpacity();
+
+                if (ChaingunRobotWaiting.opacity <= 0.21) {
+                    let robot = spriteListRegister.find(sprite => sprite instanceof ChaingunRobotWaiting);
+                    let robotIndex = spriteListRegister.findIndex(sprite => sprite instanceof ChaingunRobotWaiting);
+
+                    spriteListRegister.push(new ChaingunRobotDestroyed(robot.robotX, robot.robotY));
+
+                    if (robotIndex !== -1)
+                        spriteListRegister.splice(robotIndex, 1);
+
+                    if (ChaingunRobotWaiting.nodeChaingunRobotWaiting)
+                        ChaingunRobotWaiting.nodeChaingunRobotWaiting.remove();
+                }
             } else {
                 this.TiledImageBullet.tick(this.bulletX, this.bulletY);
             }
