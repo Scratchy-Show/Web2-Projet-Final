@@ -29,7 +29,7 @@ window.addEventListener("load", () => {
             const moveBackground = () => {
                 let scrollSpeed = 1;
 
-            // Vérifie si le robot est en vue
+            // Si le robot est en vue, le background s'arrête
             if (viewRobot)
                     scrollSpeed = 0;
 

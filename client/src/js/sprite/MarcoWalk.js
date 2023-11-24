@@ -1,6 +1,8 @@
 import { TiledImage } from '../TiledImage.js';
 import { MarcoPull } from './MarcoPull.js';
+import { MarcoBreathe } from './MarcoBreathe.js';
 import { spriteListRegister } from '../page-register.js';
+import { viewRobot } from './ChaingunRobotActivating.js';
 
 export class MarcoWalk {
     constructor(marcoX, marcoY) {
@@ -44,8 +46,25 @@ export class MarcoWalk {
         }
     }
 
+    stopMarco() {
+        if (!document.querySelector(".marco-breathe") && !spriteListRegister.some(sprite => sprite instanceof MarcoBreathe))
+            spriteListRegister.push(new MarcoBreathe(this.marcoX, this.marcoY));
+
+        let index = spriteListRegister.indexOf(this);
+        if (index !== -1) {
+            spriteListRegister.splice(index, 1);
+        }
+
+        this.nodeMarcoWalk.remove();
+    }
+
     tick () {
         this.TiledImageMarcoWalk.tick(this.marcoX, this.marcoY);
+
+        // Si le robot est en vue, Marco s'arrête
+        if (viewRobot) {
+            this.stopMarco();
+        }
 
         return true;
     }

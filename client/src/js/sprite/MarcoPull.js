@@ -1,7 +1,9 @@
 import { TiledImage } from '../TiledImage.js';
 import { MarcoWalk } from './MarcoWalk.js';
+import { MarcoBreathe } from './MarcoBreathe.js';
 import { Bullet } from './Bullet.js';
 import { spriteListRegister } from '../page-register.js';
+import { viewRobot } from './ChaingunRobotActivating.js';
 
 export class MarcoPull {
     constructor(marcoX, marcoY, pull) {
@@ -35,10 +37,20 @@ export class MarcoPull {
         this.TiledImageMarcoPull.setLooped(false);
 
         spriteListRegister.push(new Bullet(this.marcoX, this.marcoY, this.pull));
-        
-        // Relance MarcoWalk
+
+        // Affiche de nouveau Marco
         setTimeout(() => {
-            spriteListRegister.push(new MarcoWalk(this.marcoX, this.marcoY));
+            // Si il y a pas de robot
+            if(!viewRobot)
+                if (!document.querySelector(".marco-walk"))
+                    spriteListRegister.push(new MarcoWalk(this.marcoX, this.marcoY));
+
+            // Si il y a un robot        
+            if(viewRobot) {
+                if (!document.querySelector(".marco-walk"))
+                    if (!document.querySelector(".marco-breathe") && !spriteListRegister.some(sprite => sprite instanceof MarcoBreathe))
+                        spriteListRegister.push(new MarcoBreathe(this.marcoX, this.marcoY));
+            }
 
             let index = spriteListRegister.indexOf(this);
             if (index !== -1) {

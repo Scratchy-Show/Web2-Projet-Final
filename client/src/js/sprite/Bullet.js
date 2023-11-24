@@ -1,4 +1,5 @@
 import { TiledImage } from '../TiledImage.js';
+import { spriteListRegister } from '../page-register.js';
 
 export class Bullet{
     constructor(marcoX, marcoY, pull) {
@@ -33,7 +34,17 @@ export class Bullet{
         // Déplacement
         this.bulletX += this.speed;
 
-        this.TiledImageBullet.tick(this.bulletX, this.bulletY);
+        // Si la balle est hors de l'écran
+        if (this.bulletX > window.innerWidth) {
+            // Supprime Bullet
+            const index = spriteListRegister.indexOf(this);
+            if (index !== -1) {
+                spriteListRegister.splice(index, 1);
+            }
+            
+            this.nodeBullet.remove();
+        } else
+            this.TiledImageBullet.tick(this.bulletX, this.bulletY);
 
         return true;
     }

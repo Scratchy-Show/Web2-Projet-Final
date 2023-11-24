@@ -1,6 +1,7 @@
 import { TiledImage } from '../TiledImage.js';
 import { SoldierRun } from './SoldierRun.js';
 import { MarcoWalk } from './MarcoWalk.js';
+import { MarcoPull } from './MarcoPull.js';
 import { MarcoKillForward } from './MarcoKillForward.js';
 import { spriteListIndex } from '../page-index.js';
 import { spriteListRegister } from '../page-register.js';
@@ -12,6 +13,7 @@ export class MarcoBreathe {
         let refreshDelay = 150;
         let loopColumns = true;
         let scale = 1.7;
+        this.pull = 0;
         this.marcoX = marcoX;
         this.marcoY = marcoY;
 
@@ -60,6 +62,11 @@ export class MarcoBreathe {
         if (document.querySelector(".register-main")) {
 
             this.nodeMarcoBreathe.classList.add("marco-hidden");
+
+            // si robot en vue, l'apparition de départ ne s'applique pas
+            if (document.querySelector(".chaingun-robot-activating"))
+                this.nodeMarcoBreathe.classList.remove("marco-hidden");
+
             document.querySelector(".register-main").append(this.nodeMarcoBreathe);
 
             // Marco apparaît
@@ -67,19 +74,32 @@ export class MarcoBreathe {
                 this.nodeMarcoBreathe.classList.remove("marco-hidden");
             }, 500);
 
-            // Marco marche
+            // Marco marche en même temps que le background se déplace
             setTimeout(() => {
-                
-                spriteListRegister.push(new MarcoWalk(this.marcoX, this.marcoY));
+                // Si MarcoWalk n'existe pas
+                if (!document.querySelector(".marco-walk"))
+                    spriteListRegister.push(new MarcoWalk(this.marcoX, this.marcoY));
 
                 let index = spriteListRegister.indexOf(this);
                 if (index !== -1) {
                     spriteListRegister.splice(index, 1);
                 }
-    
-                this.nodeMarcoBreathe.remove();
 
+                this.nodeMarcoBreathe.remove();
             }, 1950);
+
+            /***** Au click Marco tire  *****/
+            document.querySelector(".marco-breathe").onclick = () => {
+                this.pull += 1;
+                spriteListRegister.push(new MarcoPull(this.marcoX, this.marcoY, this.pull));
+  
+                let index = spriteListRegister.indexOf(this);
+                if (index !== -1) {
+                    spriteListRegister.splice(index, 1);
+                }
+                
+                this.nodeMarcoBreathe.remove();
+            }
         }
     }
 
