@@ -1,5 +1,6 @@
 import { TiledImage } from '../TiledImage.js';
 import { ChaingunRobotWaiting } from './ChaingunRobotWaiting.js';
+import { ChaingunRobotDestroyed } from './ChaingunRobotDestroyed.js';
 import { spriteListRegister } from '../page-register.js';
 
 export let viewRobot;
@@ -66,6 +67,9 @@ export class ChaingunRobotActivating{
 
                 // Stop la boucle
                 this.TiledImageChaingunRobotActivating.setLooped(false);
+
+                // Réinitialise la valeur outDestroyedRobot à false
+                ChaingunRobotDestroyed.setOutDestroyedRobot(false);
 
                 viewRobot = true;
                 

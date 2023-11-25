@@ -3,6 +3,7 @@ import { ChaingunRobotActivating } from './ChaingunRobotActivating.js';
 import { spriteListRegister } from '../page-register.js';
 
 export let destroyedRobot;
+export let outDestroyedRobot;
 
 export class ChaingunRobotDestroyed{
     constructor(robotX, robotY, marcoX, marcoY) {
@@ -51,6 +52,7 @@ export class ChaingunRobotDestroyed{
             if (this.robotX <= -160) {
                 this.nodeChaingunRobotDestroyed.remove();
                 destroyedRobot = false;
+                outDestroyedRobot = true;
                 
                 // Affiche de nouveau le robot
                 spriteListRegister.push(new ChaingunRobotActivating(this.marcoX, this.marcoY));
@@ -66,6 +68,10 @@ export class ChaingunRobotDestroyed{
 
         // Démarre le mouvement
         requestAnimationFrame(moveRobot);
+    }
+
+    static setOutDestroyedRobot(value) {
+        outDestroyedRobot = value;
     }
 
     tick () {
