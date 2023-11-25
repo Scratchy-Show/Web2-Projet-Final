@@ -7,7 +7,7 @@ export let outDestroyedRobot;
 
 export class ChaingunRobotDestroyed{
     constructor(robotX, robotY, marcoX, marcoY) {
-        let colCount = 17;
+        let colCount = 16;
         let rowCount = 1;
         let refreshDelay = 100;
         let loopColumns = true;
@@ -32,7 +32,7 @@ export class ChaingunRobotDestroyed{
             scale,
             this.nodeChaingunRobotDestroyed
         );
-        this.TiledImageChaingunRobotDestroyed.changeMinMaxInterval(0, 16);
+        this.TiledImageChaingunRobotDestroyed.changeMinMaxInterval(0, 15);
 
         // Stop la boucle
         this.TiledImageChaingunRobotDestroyed.setLooped(false);
