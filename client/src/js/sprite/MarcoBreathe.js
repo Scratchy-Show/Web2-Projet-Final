@@ -1,7 +1,7 @@
 import { TiledImage } from '../TiledImage.js';
 import { SoldierRun } from './SoldierRun.js';
 import { MarcoWalk } from './MarcoWalk.js';
-import { MarcoPullWalk } from './MarcoPullWalk.js';
+import { MarcoPullBreathe } from './MarcoPullBreathe.js';
 import { MarcoKillForward } from './MarcoKillForward.js';
 import { spriteListIndex } from '../page-index.js';
 import { spriteListRegister } from '../page-register.js';
@@ -77,7 +77,7 @@ export class MarcoBreathe {
 
             /***** Au click Marco tire  *****/
             document.querySelector(".marco-breathe").onclick = () => {
-                spriteListRegister.push(new MarcoPullWalk(this.marcoX, this.marcoY));
+                spriteListRegister.push(new MarcoPullBreathe(this.marcoX, this.marcoY));
 
                 let index = spriteListRegister.indexOf(this);
                 if (index !== -1) {
