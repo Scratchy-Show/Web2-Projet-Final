@@ -35,7 +35,30 @@ export class ChaingunRobotDestroyed{
         // Délais de l'animation
         setTimeout(() => {
             destroyedRobot = true;
+            this.outDestroyedRobot(this.robotX);
         }, 1800);
+    }
+
+    outDestroyedRobot(x) {
+        let speed = 1;
+
+        const moveRobot = () => {
+            // Si le robot sort de l'écran
+            if (this.robotX <= 420) {
+                this.nodeChaingunRobotDestroyed.remove();
+                destroyedRobot = false;
+                return false;
+            }
+
+            this.robotX -= speed;
+            this.nodeChaingunRobotDestroyed.style.transform = `translateX(${this.robotX - x}px)`;
+
+            // Demande une nouvelle frame du mouvement
+            requestAnimationFrame(moveRobot);
+        };
+
+        // Démarre le mouvement
+        requestAnimationFrame(moveRobot);
     }
 
     tick () {
