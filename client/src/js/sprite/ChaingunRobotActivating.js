@@ -66,9 +66,9 @@ export class ChaingunRobotActivating{
 
                 // Stop la boucle
                 this.TiledImageChaingunRobotActivating.setLooped(false);
-                
-                viewRobot = true;
 
+                viewRobot = true;
+                
                 return false;
             }
 

@@ -51,7 +51,7 @@ export class ChaingunRobotDestroyed{
             if (this.robotX <= -160) {
                 this.nodeChaingunRobotDestroyed.remove();
                 destroyedRobot = false;
-
+                
                 // Affiche de nouveau le robot
                 spriteListRegister.push(new ChaingunRobotActivating(this.marcoX, this.marcoY));
                 return false;

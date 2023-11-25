@@ -78,8 +78,10 @@ export class Bullet{
                     if (robotIndex !== -1)
                         spriteListRegister.splice(robotIndex, 1);
 
-                    if (ChaingunRobotWaiting.nodeChaingunRobotWaiting)
-                        ChaingunRobotWaiting.nodeChaingunRobotWaiting.remove();
+                    if (document.querySelector(".chaingun-robot-waiting"))
+                        document.querySelector(".chaingun-robot-waiting").remove();
+
+                    ChaingunRobotWaiting.opacity = 1;
                 }
             } else {
                 this.TiledImageBullet.tick(this.bulletX, this.bulletY);

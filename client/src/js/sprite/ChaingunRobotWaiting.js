@@ -12,7 +12,7 @@ export class ChaingunRobotWaiting{
         this.robotX = x + x;
         this.robotY = y;
         this.opacity = 1;
-
+        
         /***** SPRITESHEET - CHAINGUN ROBOT WAITING  *****/
         this.nodeChaingunRobotWaiting = document.createElement("div");
         this.nodeChaingunRobotWaiting.classList.add("chaingun-robot-waiting");

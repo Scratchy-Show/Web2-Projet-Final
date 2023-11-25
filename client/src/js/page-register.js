@@ -38,7 +38,7 @@ window.addEventListener("load", () => {
                         backgroundMove = false;
                     }
 
-                // Si le robot est détruit, le background reprend
+                 // Si le robot est détruit, le background reprend
                 if (destroyedRobot) {
                     scrollSpeed = 1;
                     backgroundMove = true;
