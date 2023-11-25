@@ -35,21 +35,18 @@ export class Bullet{
 
     removeBullet() {
         const index = spriteListRegister.indexOf(this);
-        if (index !== -1) {
+        if (index !== -1)
             spriteListRegister.splice(index, 1);
-        }
 
-        if (this.nodeBullet.parentNode) {
+        if (this.nodeBullet.parentNode)
             this.nodeBullet.parentNode.removeChild(this.nodeBullet);
-        }
     }
 
     checkCollisionWithRobot() {
         let robot = spriteListRegister.find(sprite => sprite instanceof ChaingunRobotWaiting);
 
-        if (robot && this.bulletX >= robot.robotX) {
+        if (robot && this.bulletX >= robot.robotX)
             return true;
-        }
         return false;
     }
 
@@ -58,9 +55,9 @@ export class Bullet{
         this.bulletX += this.speed;
 
         // Si la balle est hors de l'écran
-        if (this.bulletX > window.innerWidth) {
+        if (this.bulletX > window.innerWidth)
             this.removeBullet();
-        } else {
+        else {
             // Vérifie la collision avec le robot
             let hitRobot = this.checkCollisionWithRobot();
 
@@ -83,9 +80,8 @@ export class Bullet{
 
                     ChaingunRobotWaiting.opacity = 1;
                 }
-            } else {
+            } else
                 this.TiledImageBullet.tick(this.bulletX, this.bulletY);
-            }
         }
         return true;
     }

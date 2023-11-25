@@ -45,9 +45,8 @@ export class ChaingunRobotActivating{
                 spriteListRegister.push(new ChaingunRobotWaiting(this.robotX, this.robotY));
                 
                 let index = spriteListRegister.indexOf(this);
-                if (index !== -1) {
+                if (index !== -1)
                     spriteListRegister.splice(index, 1);
-                }
         
                 this.nodeChaingunRobotActivating.remove();
             }

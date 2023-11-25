@@ -52,12 +52,10 @@ export class MarcoPullBreathe {
             }
 
             let index = spriteListRegister.indexOf(this);
-            if (index !== -1) {
+            if (index !== -1)
                 spriteListRegister.splice(index, 1);
-            }
 
             this.nodeMarcoPullBreathe.remove();
-            console.log(spriteListRegister);
         }, 400);
     }
 

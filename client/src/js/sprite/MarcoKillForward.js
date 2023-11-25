@@ -41,9 +41,8 @@ export class MarcoKillForward {
                 spriteListIndex.push(new MarcoZombie(this.marcoX, this.marcoY));
                 
                 let index = spriteListIndex.indexOf(this);
-                if (index !== -1) {
+                if (index !== -1)
                     spriteListIndex.splice(index, 1);
-                }
         
                 this.nodeMarcoKillForward.remove();
             }

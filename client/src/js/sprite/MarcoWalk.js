@@ -36,9 +36,8 @@ export class MarcoWalk {
             spriteListRegister.push(new MarcoPullWalk(this.marcoX, this.marcoY));
 
             let index = spriteListRegister.indexOf(this);
-            if (index !== -1) {
+            if (index !== -1)
                 spriteListRegister.splice(index, 1);
-            }
 
             this.nodeMarcoWalk.remove();
         }
@@ -49,9 +48,8 @@ export class MarcoWalk {
             spriteListRegister.push(new MarcoBreathe(this.marcoX, this.marcoY));
 
         let index = spriteListRegister.indexOf(this);
-        if (index !== -1) {
+        if (index !== -1)
             spriteListRegister.splice(index, 1);
-        }
 
         this.nodeMarcoWalk.remove();
     }
@@ -60,9 +58,8 @@ export class MarcoWalk {
         this.TiledImageMarcoWalk.tick(this.marcoX, this.marcoY);
 
         // Si le background ne bouge pas, Marco s'arrête
-        if (!backgroundMove) {
+        if (!backgroundMove)
             this.stopMarco();
-        }
 
         return true;
     }

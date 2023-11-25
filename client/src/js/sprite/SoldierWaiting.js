@@ -46,9 +46,8 @@ export class SoldierWaiting {
 				spriteListIndex.push(new SoldierFear(this.soldierX, this.soldierY, this.direction, this.marcoX));
 				
 				let index = spriteListIndex.indexOf(this);
-				if (index !== -1) {
+				if (index !== -1)
 					spriteListIndex.splice(index, 1);
-				}
 		
 				this.nodeSoldierWaiting.remove();
 			}

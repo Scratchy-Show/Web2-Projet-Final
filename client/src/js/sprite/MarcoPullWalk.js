@@ -52,9 +52,8 @@ export class MarcoPullWalk {
             }
 
             let index = spriteListRegister.indexOf(this);
-            if (index !== -1) {
+            if (index !== -1)
                 spriteListRegister.splice(index, 1);
-            }
 
             this.nodeMarcoPullWalk.remove();
         }, 400);

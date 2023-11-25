@@ -44,19 +44,17 @@ export class MarcoBreathe {
                 spriteListIndex.push(new MarcoKillForward(this.marcoX, this.marcoY));
 
                 let index = spriteListIndex.indexOf(this);
-                if (index !== -1) {
+                if (index !== -1)
                     spriteListIndex.splice(index, 1);
-                }
 
                 this.nodeMarcoBreathe.remove();
             }
   
             //Ajoute des soldats après un délai
-            for (let i = 0; i < 6; i++) {
+            for (let i = 0; i < 6; i++)
                 setTimeout(() => {
                     spriteListIndex.push(new SoldierRun(this.marcoX, this.marcoY));
                 }, i * 2000);
-            }
         }
 
         /********** REGISTER.HTML **********/
@@ -80,9 +78,8 @@ export class MarcoBreathe {
                 spriteListRegister.push(new MarcoPullBreathe(this.marcoX, this.marcoY));
 
                 let index = spriteListRegister.indexOf(this);
-                if (index !== -1) {
+                if (index !== -1)
                     spriteListRegister.splice(index, 1);
-                }
 
                 this.nodeMarcoBreathe.remove();
             }
@@ -97,9 +94,8 @@ export class MarcoBreathe {
                 spriteListRegister.push(new MarcoWalk(this.marcoX, this.marcoY));
 
             let index = spriteListRegister.indexOf(this);
-            if (index !== -1) {
+            if (index !== -1)
                 spriteListRegister.splice(index, 1);
-            }
 
             this.nodeMarcoBreathe.remove();
         }

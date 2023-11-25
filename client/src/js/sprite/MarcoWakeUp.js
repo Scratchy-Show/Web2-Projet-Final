@@ -44,9 +44,8 @@ export class MarcoWakeUp {
 					spriteListIndex.push(new MarcoBreathe(this.marcoX, this.marcoY));
 
 					let index = spriteListIndex.indexOf(this);
-					if (index !== -1) {
+					if (index !== -1)
 						spriteListIndex.splice(index, 1);
-					}
 
 					this.nodeMarcoWakeUp.remove();
 				}
