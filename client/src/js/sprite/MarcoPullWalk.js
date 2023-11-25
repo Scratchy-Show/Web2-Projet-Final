@@ -5,7 +5,7 @@ import { Bullet } from './Bullet.js';
 import { spriteListRegister } from '../page-register.js';
 import { viewRobot } from './ChaingunRobotActivating.js';
 
-export class MarcoPull {
+export class MarcoPullWalk {
     constructor(marcoX, marcoY) {
         let colCount = 10;
         let rowCount = 1;
@@ -15,25 +15,25 @@ export class MarcoPull {
         this.marcoX = marcoX;
         this.marcoY = marcoY;
 
-        /***** SPRITESHEET - MARCO PULL  *****/
-        this.nodeMarcoPull = document.createElement("div");
-        this.nodeMarcoPull.classList.add("marco-pull");
-        this.nodeMarcoPull.style.zIndex = 20;
-        document.querySelector(".register-main").append(this.nodeMarcoPull);
+        /***** SPRITESHEET - MARCO PULL WALK  *****/
+        this.nodeMarcoPullWalk = document.createElement("div");
+        this.nodeMarcoPullWalk.classList.add("marco-pull-walk");
+        this.nodeMarcoPullWalk.style.zIndex = 20;
+        document.querySelector(".register-main").append(this.nodeMarcoPullWalk);
 
-        this.TiledImageMarcoPull = new TiledImage(
-            "./img/marco-pull.png",
+        this.TiledImageMarcoPullWalk = new TiledImage(
+            "./img/marco-pull-walk.png",
             colCount,
             rowCount,
             refreshDelay,
             loopColumns,
             scale,
-            this.nodeMarcoPull
+            this.nodeMarcoPullWalk
         );
-        this.TiledImageMarcoPull.changeMinMaxInterval(0, 9);
+        this.TiledImageMarcoPullWalk.changeMinMaxInterval(0, 9);
 
         // Désactive la boucle
-        this.TiledImageMarcoPull.setLooped(false);
+        this.TiledImageMarcoPullWalk.setLooped(false);
 
         spriteListRegister.push(new Bullet(this.marcoX, this.marcoY));
 
@@ -56,12 +56,12 @@ export class MarcoPull {
                 spriteListRegister.splice(index, 1);
             }
 
-            this.nodeMarcoPull.remove();
+            this.nodeMarcoPullWalk.remove();
         }, 400);
     }
 
     tick () {
-        this.TiledImageMarcoPull.tick(this.marcoX, this.marcoY);
+        this.TiledImageMarcoPullWalk.tick(this.marcoX, this.marcoY);
 
         return true;
     }
