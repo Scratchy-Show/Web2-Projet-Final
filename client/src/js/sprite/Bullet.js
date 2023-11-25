@@ -73,7 +73,7 @@ export class Bullet{
                     let robot = spriteListRegister.find(sprite => sprite instanceof ChaingunRobotWaiting);
                     let robotIndex = spriteListRegister.findIndex(sprite => sprite instanceof ChaingunRobotWaiting);
 
-                    spriteListRegister.push(new ChaingunRobotDestroyed(robot.robotX, robot.robotY));
+                    spriteListRegister.push(new ChaingunRobotDestroyed(robot.robotX, robot.robotY, this.marcoX, this.marcoY));
 
                     if (robotIndex !== -1)
                         spriteListRegister.splice(robotIndex, 1);

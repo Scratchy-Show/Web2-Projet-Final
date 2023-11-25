@@ -1,17 +1,21 @@
 import { TiledImage } from '../TiledImage.js';
+import { ChaingunRobotActivating } from './ChaingunRobotActivating.js';
+import { spriteListRegister } from '../page-register.js';
 
 export let destroyedRobot;
 
 export class ChaingunRobotDestroyed{
-    constructor(x, y) {
+    constructor(robotX, robotY, marcoX, marcoY) {
         let colCount = 17;
         let rowCount = 1;
         let refreshDelay = 100;
         let loopColumns = true;
         let scale = 1.7;
         this.animationTerminee = false;
-        this.robotX = x;
-        this.robotY = y;
+        this.robotX = robotX;
+        this.robotY = robotY;
+        this.marcoX = marcoX;
+        this.marcoY = marcoY;
 
         /***** SPRITESHEET - CHAINGUN ROBOT DESTROYED  *****/
         this.nodeChaingunRobotDestroyed = document.createElement("div");
@@ -44,14 +48,17 @@ export class ChaingunRobotDestroyed{
 
         const moveRobot = () => {
             // Si le robot sort de l'écran
-            if (this.robotX <= 420) {
+            if (this.robotX <= -160) {
                 this.nodeChaingunRobotDestroyed.remove();
                 destroyedRobot = false;
+
+                // Affiche de nouveau le robot
+                spriteListRegister.push(new ChaingunRobotActivating(this.marcoX, this.marcoY));
                 return false;
             }
 
             this.robotX -= speed;
-            this.nodeChaingunRobotDestroyed.style.transform = `translateX(${this.robotX - x}px)`;
+            this.nodeChaingunRobotDestroyed.style.transform = `translateX(${this.robotX - this.robotX}px)`;
 
             // Demande une nouvelle frame du mouvement
             requestAnimationFrame(moveRobot);
