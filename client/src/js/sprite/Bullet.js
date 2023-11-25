@@ -69,7 +69,7 @@ export class Bullet{
                 this.removeBullet();
                 ChaingunRobotWaiting.reduceOpacity();
 
-                if (ChaingunRobotWaiting.opacity <= 0.21) {
+                if (ChaingunRobotWaiting.opacity === 0) {
                     let robot = spriteListRegister.find(sprite => sprite instanceof ChaingunRobotWaiting);
                     let robotIndex = spriteListRegister.findIndex(sprite => sprite instanceof ChaingunRobotWaiting);
 

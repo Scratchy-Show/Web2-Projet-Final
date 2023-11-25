@@ -32,7 +32,7 @@ export class ChaingunRobotWaiting{
 
     static reduceOpacity() {
         if (ChaingunRobotWaiting.opacity > 0) {
-            ChaingunRobotWaiting.opacity -= 0.2;
+            ChaingunRobotWaiting.opacity -= 0.25;
             ChaingunRobotWaiting.setOpacity(ChaingunRobotWaiting.opacity);
         }
     }
