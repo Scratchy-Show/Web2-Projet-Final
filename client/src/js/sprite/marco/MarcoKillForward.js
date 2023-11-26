@@ -1,6 +1,6 @@
-import { TiledImage } from '../TiledImage.js';
+import { TiledImage } from '../../TiledImage.js';
+import { spriteListIndex } from '../../page-index.js';
 import { MarcoZombie } from './MarcoZombie.js';
-import { spriteListIndex } from '../page-index.js';
 
 export class MarcoKillForward {
     constructor(marcoX, marcoY) {

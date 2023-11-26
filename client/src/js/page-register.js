@@ -1,9 +1,9 @@
 import { register } from './chat-api';
-import { MarcoBreathe } from './sprite/MarcoBreathe.js';
-import { ChaingunRobotActivating } from './sprite/ChaingunRobotActivating.js';
-import { viewRobot } from './sprite/ChaingunRobotActivating.js';
-import { destroyedRobot } from './sprite/ChaingunRobotDestroyed.js';
-import { outDestroyedRobot } from './sprite/ChaingunRobotDestroyed.js';
+import { MarcoBreathe } from './sprite/marco/MarcoBreathe.js';
+import { ChaingunRobotActivating } from './sprite/chaingun/ChaingunRobotActivating.js';
+import { viewRobot } from './sprite/chaingun/ChaingunRobotActivating.js';
+import { destroyedRobot } from './sprite/chaingun/ChaingunRobotDestroyed.js';
+import { outDestroyedRobot } from './sprite/chaingun/ChaingunRobotDestroyed.js';
 
 export let spriteListRegister = [];
 export let backgroundMove;

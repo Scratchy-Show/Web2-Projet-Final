@@ -1,12 +1,13 @@
-import { TiledImage } from '../TiledImage.js';
-import { SoldierRun } from './SoldierRun.js';
+import { TiledImage } from '../../TiledImage.js';
+import { spriteListIndex } from '../../page-index.js';
+import { spriteListRegister } from '../../page-register.js';
+import { backgroundMove } from '../../page-register.js';
+import { viewRobot } from '../chaingun/ChaingunRobotActivating.js';
+import { SoldierRun } from '../soldier/SoldierRun.js';
 import { MarcoWalk } from './MarcoWalk.js';
 import { MarcoPullBreathe } from './MarcoPullBreathe.js';
 import { MarcoKillForward } from './MarcoKillForward.js';
-import { spriteListIndex } from '../page-index.js';
-import { spriteListRegister } from '../page-register.js';
-import { viewRobot } from './ChaingunRobotActivating.js';
-import { backgroundMove } from '../page-register.js';
+
 
 export class MarcoBreathe {
     constructor(marcoX, marcoY) {

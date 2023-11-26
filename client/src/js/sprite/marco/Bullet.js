@@ -1,7 +1,7 @@
-import { TiledImage } from '../TiledImage.js';
-import { ChaingunRobotWaiting } from './ChaingunRobotWaiting.js';
-import { ChaingunRobotDestroyed } from './ChaingunRobotDestroyed.js';
-import { spriteListRegister } from '../page-register.js';
+import { TiledImage } from '../../TiledImage.js';
+import { spriteListRegister } from '../../page-register.js';
+import { ChaingunRobotWaiting } from '../chaingun/ChaingunRobotWaiting.js';
+import { ChaingunRobotDestroyed } from '../chaingun/ChaingunRobotDestroyed.js';
 
 export class Bullet{
     constructor(marcoX, marcoY) {

@@ -1,6 +1,6 @@
-import { TiledImage } from '../TiledImage.js';
+import { TiledImage } from '../../TiledImage.js';
+import { spriteListIndex } from '../../page-index.js';
 import { SoldierFear } from './SoldierFear.js';
-import { spriteListIndex } from '../page-index.js';
 
 export class SoldierWaiting {
 	constructor(x, y, direction, marcoX) {

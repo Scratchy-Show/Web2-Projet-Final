@@ -1,11 +1,11 @@
-import { TiledImage } from '../TiledImage.js';
+import { TiledImage } from '../../TiledImage.js';
+import { spriteListRegister } from '../../page-register.js';
+import { viewRobot } from '../chaingun/ChaingunRobotActivating.js';
 import { MarcoWalk } from './MarcoWalk.js';
 import { MarcoBreathe } from './MarcoBreathe.js';
 import { Bullet } from './Bullet.js';
-import { spriteListRegister } from '../page-register.js';
-import { viewRobot } from './ChaingunRobotActivating.js';
 
-export class MarcoPullWalk {
+export class MarcoPullBreathe {
     constructor(marcoX, marcoY) {
         let colCount = 10;
         let rowCount = 1;
@@ -15,25 +15,25 @@ export class MarcoPullWalk {
         this.marcoX = marcoX;
         this.marcoY = marcoY;
 
-        /***** SPRITESHEET - MARCO PULL WALK  *****/
-        this.nodeMarcoPullWalk = document.createElement("div");
-        this.nodeMarcoPullWalk.classList.add("marco-pull-walk");
-        this.nodeMarcoPullWalk.style.zIndex = 20;
-        document.querySelector(".register-main").append(this.nodeMarcoPullWalk);
+        /***** SPRITESHEET - MARCO PULL BREATHE  *****/
+        this.nodeMarcoPullBreathe = document.createElement("div");
+        this.nodeMarcoPullBreathe.classList.add("marco-pull-breathe");
+        this.nodeMarcoPullBreathe.style.zIndex = 20;
+        document.querySelector(".register-main").append(this.nodeMarcoPullBreathe);
 
-        this.TiledImageMarcoPullWalk = new TiledImage(
-            "./img/marco/marco-pull-walk.png",
+        this.TiledImageMarcoPullBreathe = new TiledImage(
+            "./img/marco/marco-pull-breathe.png",
             colCount,
             rowCount,
             refreshDelay,
             loopColumns,
             scale,
-            this.nodeMarcoPullWalk
+            this.nodeMarcoPullBreathe
         );
-        this.TiledImageMarcoPullWalk.changeMinMaxInterval(0, 9);
+        this.TiledImageMarcoPullBreathe.changeMinMaxInterval(0, 9);
 
         // Désactive la boucle
-        this.TiledImageMarcoPullWalk.setLooped(false);
+        this.TiledImageMarcoPullBreathe.setLooped(false);
 
         spriteListRegister.push(new Bullet(this.marcoX, this.marcoY));
 
@@ -55,12 +55,12 @@ export class MarcoPullWalk {
             if (index !== -1)
                 spriteListRegister.splice(index, 1);
 
-            this.nodeMarcoPullWalk.remove();
+            this.nodeMarcoPullBreathe.remove();
         }, 400);
     }
 
     tick () {
-        this.TiledImageMarcoPullWalk.tick(this.marcoX, this.marcoY);
+        this.TiledImageMarcoPullBreathe.tick(this.marcoX, this.marcoY);
 
         return true;
     }

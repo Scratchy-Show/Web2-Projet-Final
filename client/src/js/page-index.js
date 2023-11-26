@@ -1,6 +1,6 @@
 import { signin } from './chat-api.js';
-import { Chicken } from './sprite/Chicken.js';
-import { MarcoWakeUp } from './sprite/MarcoWakeUp.js';
+import { Chicken } from './sprite/flying/Chicken.js';
+import { MarcoWakeUp } from './sprite/marco/MarcoWakeUp.js';
 
 export let spriteListIndex = [];
 

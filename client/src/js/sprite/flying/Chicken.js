@@ -1,4 +1,4 @@
-import { TiledImage } from '../TiledImage.js';
+import { TiledImage } from '../../TiledImage.js';
 
 export class Chicken{
     constructor(i) {

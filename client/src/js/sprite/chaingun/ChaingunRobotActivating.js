@@ -1,7 +1,7 @@
-import { TiledImage } from '../TiledImage.js';
+import { TiledImage } from '../../TiledImage.js';
+import { spriteListRegister } from '../../page-register.js';
 import { ChaingunRobotWaiting } from './ChaingunRobotWaiting.js';
 import { ChaingunRobotDestroyed } from './ChaingunRobotDestroyed.js';
-import { spriteListRegister } from '../page-register.js';
 
 export let viewRobot;
 

@@ -1,6 +1,6 @@
-import { TiledImage } from '../TiledImage.js';
+import { TiledImage } from '../../TiledImage.js';
+import { spriteListRegister } from '../../page-register.js';
 import { ChaingunRobotActivating } from './ChaingunRobotActivating.js';
-import { spriteListRegister } from '../page-register.js';
 
 export let destroyedRobot;
 export let outDestroyedRobot;

@@ -1,8 +1,8 @@
-import { TiledImage } from '../TiledImage.js';
+import { TiledImage } from '../../TiledImage.js';
+import { spriteListRegister } from '../../page-register.js';
+import { backgroundMove } from '../../page-register.js';
 import { MarcoPullWalk } from './MarcoPullWalk.js';
 import { MarcoBreathe } from './MarcoBreathe.js';
-import { spriteListRegister } from '../page-register.js';
-import { backgroundMove } from '../page-register.js';
 
 export class MarcoWalk {
     constructor(marcoX, marcoY) {

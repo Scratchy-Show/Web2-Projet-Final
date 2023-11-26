@@ -1,6 +1,6 @@
-import { TiledImage } from '../TiledImage.js';
+import { TiledImage } from '../../TiledImage.js';
+import { spriteListIndex } from '../../page-index.js';
 import { SoldierSlowMotion } from './SoldierSlowMotion.js';
-import { spriteListIndex } from '../page-index.js';
 
 export class SoldierRun {
 	constructor(marcoX, marcoY) {

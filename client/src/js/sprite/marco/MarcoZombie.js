@@ -1,6 +1,6 @@
-import { TiledImage } from '../TiledImage.js';
+import { TiledImage } from '../../TiledImage.js';
+import { spriteListIndex } from '../../page-index.js';
 import { MarcoZombieWaiting } from './MarcoZombieWaiting.js';
-import { spriteListIndex } from '../page-index.js';
 
 export class MarcoZombie {
     constructor(marcoX, marcoY) {

@@ -1,4 +1,4 @@
-import { TiledImage } from '../TiledImage.js';
+import { TiledImage } from '../../TiledImage.js';
 
 export class ChaingunRobotWaiting{
     static opacity = 1;
