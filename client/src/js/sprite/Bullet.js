@@ -22,7 +22,7 @@ export class Bullet{
         document.querySelector("main").append(this.nodeBullet);
 
         this.TiledImageBullet = new TiledImage(
-            "./img/bullet.png",
+            "./img/marco/bullet.png",
             colCount,
             rowCount,
             refreshDelay,

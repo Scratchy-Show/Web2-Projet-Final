@@ -1,4 +1,4 @@
-import {register} from './chat-api';
+import { register } from './chat-api';
 import { MarcoBreathe } from './sprite/MarcoBreathe.js';
 import { ChaingunRobotActivating } from './sprite/ChaingunRobotActivating.js';
 import { viewRobot } from './sprite/ChaingunRobotActivating.js';

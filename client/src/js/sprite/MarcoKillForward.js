@@ -20,7 +20,7 @@ export class MarcoKillForward {
         document.querySelector(".index-main").append(this.nodeMarcoKillForward);
 
         this.TiledImageMarcoKillForward = new TiledImage(
-            "./img/marco-kill-forward.png",
+            "./img/marco/marco-kill-forward.png",
             colCount,
             rowCount,
             refreshDelay,

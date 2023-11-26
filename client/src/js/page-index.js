@@ -1,4 +1,4 @@
-import {signin} from './chat-api.js';
+import { signin } from './chat-api.js';
 import { Chicken } from './sprite/Chicken.js';
 import { MarcoWakeUp } from './sprite/MarcoWakeUp.js';
 

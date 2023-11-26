@@ -22,7 +22,7 @@ export class MarcoPullBreathe {
         document.querySelector(".register-main").append(this.nodeMarcoPullBreathe);
 
         this.TiledImageMarcoPullBreathe = new TiledImage(
-            "./img/marco-pull-breathe.png",
+            "./img/marco/marco-pull-breathe.png",
             colCount,
             rowCount,
             refreshDelay,

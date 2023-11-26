@@ -16,7 +16,7 @@ export class Chicken{
         document.querySelector("main").append(this.nodeChicken);
 
         this.TiledImageChicken = new TiledImage(
-            "./img/chicken.png",
+            "./img/flying/chicken.png",
             colCount,
             rowCount,
             refreshDelay,

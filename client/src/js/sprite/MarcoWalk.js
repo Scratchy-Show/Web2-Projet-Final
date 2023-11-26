@@ -21,7 +21,7 @@ export class MarcoWalk {
         document.querySelector(".register-main").append(this.nodeMarcoWalk);
 
         this.TiledImageMarcoWalk = new TiledImage(
-            "./img/marco-walk.png",
+            "./img/marco/marco-walk.png",
             colCount,
             rowCount,
             refreshDelay,

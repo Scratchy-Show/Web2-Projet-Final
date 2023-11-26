@@ -18,7 +18,7 @@ export class MarcoWakeUp {
 		document.querySelector(".index-main").append(this.nodeMarcoWakeUp);
 
 		this.TiledImageMarcoWakeUp = new TiledImage(
-			"./img/marco-wake-up.png",
+			"./img/marco/marco-wake-up.png",
 			colCount,
 			rowCount,
 			refreshDelay,

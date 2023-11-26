@@ -19,7 +19,7 @@ export class ChaingunRobotWaiting{
         document.querySelector(".register-main").append(this.nodeChaingunRobotWaiting);
 
         this.TiledImageChaingunRobotWaiting = new TiledImage(
-            "./img/chaingun-robot-waiting.png",
+            "./img/chaingun/chaingun-robot-waiting.png",
             colCount,
             rowCount,
             refreshDelay,

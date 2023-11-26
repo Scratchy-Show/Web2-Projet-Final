@@ -21,7 +21,7 @@ export class SoldierRun {
 		document.querySelector(".index-main").append(this.nodeSoldier);
 
 		this.TiledImageSoldier = new TiledImage(
-			"./img/soldier-run.png",
+			"./img/soldier/soldier-run.png",
 			colCount,
 			rowCount,
 			refreshDelay,

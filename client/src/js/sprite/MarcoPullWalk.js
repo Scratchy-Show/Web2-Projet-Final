@@ -22,7 +22,7 @@ export class MarcoPullWalk {
         document.querySelector(".register-main").append(this.nodeMarcoPullWalk);
 
         this.TiledImageMarcoPullWalk = new TiledImage(
-            "./img/marco-pull-walk.png",
+            "./img/marco/marco-pull-walk.png",
             colCount,
             rowCount,
             refreshDelay,

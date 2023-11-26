@@ -19,7 +19,7 @@ export class MarcoZombie {
         document.querySelector(".index-main").append(this.nodeMarcoZombie);
 
         this.TiledImageMarcoZombie= new TiledImage(
-            "./img/marco-zombie.png",
+            "./img/marco/marco-zombie.png",
             colCount,
             rowCount,
             refreshDelay,

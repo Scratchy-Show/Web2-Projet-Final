@@ -24,7 +24,7 @@ export class ChaingunRobotDestroyed{
         document.querySelector(".register-main").append(this.nodeChaingunRobotDestroyed);
 
         this.TiledImageChaingunRobotDestroyed = new TiledImage(
-            "./img/chaingun-robot-destroyed.png",
+            "./img/chaingun/chaingun-robot-destroyed.png",
             colCount,
             rowCount,
             refreshDelay,

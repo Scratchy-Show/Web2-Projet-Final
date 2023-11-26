@@ -20,7 +20,7 @@ export class SoldierSlowMotion {
 		document.querySelector(".index-main").append(this.nodeSoldierSlowMotion);
 
 		this.TiledImageSoldierSlowMotion = new TiledImage(
-			"./img/soldier-slow-motion.png",
+			"./img/soldier/soldier-slow-motion.png",
 			colCount,
 			rowCount,
 			refreshDelay,

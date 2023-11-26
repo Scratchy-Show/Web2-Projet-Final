@@ -22,7 +22,7 @@ export class SoldierFear {
 		document.querySelector(".index-main").append(this.nodeSoldierFear);
 
 		this.TiledImageSoldierFear = new TiledImage(
-			"./img/soldier-fear.png",
+			"./img/soldier/soldier-fear.png",
 			colCount,
 			rowCount,
 			refreshDelay,

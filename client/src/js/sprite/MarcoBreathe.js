@@ -24,7 +24,7 @@ export class MarcoBreathe {
         this.nodeMarcoBreathe.style.zIndex = 20;
 
         this.TiledImageMarcoBreathe = new TiledImage(
-            "./img/marco-breathe.png",
+            "./img/marco/marco-breathe.png",
             colCount,
             rowCount,
             refreshDelay,
