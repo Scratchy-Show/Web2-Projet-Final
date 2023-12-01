@@ -19,7 +19,8 @@ main {
 .background-image {
     width: 50%;
     height: 100%;
-    background-size: contain;
+    background-size: cover;
+    background-position: bottom center; /* Supprime ce qui dépasse au-dessus */
     background-image: url("../img/maps/map2.png");
 }
 
@@ -43,7 +44,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 80vh;
+    height: 75vh;
     width: 80%;
     max-width: 600px;
     padding: 10px;
@@ -61,7 +62,7 @@ main {
 }
 
 .container-form button{
-    padding: 10px;
+    margin: 10px;
     border-radius: 10px;
     color: white;
     background-color: #F04A23;

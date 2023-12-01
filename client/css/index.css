@@ -5,10 +5,11 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: -10;
-    background-image: url("../img/maps/map1.png");
     background-size: cover;
+    background-position: bottom center;
+    background-image: url("../img/maps/map1.png");
 }
 
 /********** SECTION TITLE **********/
@@ -21,7 +22,7 @@
 }
 
 #title .container-metal-slug {
-    width: 800px;
+    width: 1000px;
 }
 
 #title h1 {
@@ -36,7 +37,7 @@
 form {
     display: none;
     position: relative;
-    top: 350px;
+    top: 50vh;
     opacity: 0;
     z-index: 20;
 }
@@ -137,7 +138,7 @@ form {
 .redirection {
     display: none;
     position: relative;
-    top: 430px;
+    top: 65vh;
     text-align: center;
     z-index: 20;
     color: #FDCD01;

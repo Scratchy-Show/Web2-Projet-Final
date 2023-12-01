@@ -31,8 +31,8 @@ export class MarcoWalk {
         );
         this.TiledImageMarcoWalk.changeMinMaxInterval(0, 5);
 
-        /***** Au click Marco tire  *****/
-        document.querySelector(".marco-walk").onclick = () => {
+        /***** Au survol de la souris Marco tire  *****/
+        document.querySelector(".marco-walk").onmouseover = () => {
             spriteListRegister.push(new MarcoPullWalk(this.marcoX, this.marcoY));
 
             let index = spriteListRegister.indexOf(this);

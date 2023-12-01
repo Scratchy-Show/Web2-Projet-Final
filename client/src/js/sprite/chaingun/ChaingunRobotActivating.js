@@ -31,36 +31,38 @@ export class ChaingunRobotActivating{
         this.TiledImageChaingunRobotActivating.changeMinMaxInterval(0, 8);
 
         // Positions
-        this.robotX = window.innerWidth / 1.5;
+        this.robotX = window.innerWidth  /1.5;
         this.robotY = y;
+        this.robotWaitingX = window.innerWidth  * 0.4;
 
         // Stop l'animation
         this.TiledImageChaingunRobotActivating.setPaused(true);
-
-        // Délais de l'animation
-        setTimeout(() => {
-            this.animationTerminee = true;
-
-            if (this.animationTerminee) {
-                spriteListRegister.push(new ChaingunRobotWaiting(this.robotX, this.robotY));
-                
-                let index = spriteListRegister.indexOf(this);
-                if (index !== -1)
-                    spriteListRegister.splice(index, 1);
-        
-                this.nodeChaingunRobotActivating.remove();
-            }
-        }, 6300);
 
         this.appearanceRobot();
     }
 
     appearanceRobot() {
         let speed = 1;
-        let stopPosition = 500;
 
         const moveRobot = () => {
-            if (this.robotX <= stopPosition) {
+            if (this.robotX <= this.robotWaitingX) {
+                
+                this.animationTerminee = true;
+
+               // Délais de l'animation
+                setTimeout(() => {
+                    if (this.animationTerminee) {
+                
+                        spriteListRegister.push(new ChaingunRobotWaiting(this.robotWaitingX, this.robotY));
+                    
+                        let index = spriteListRegister.indexOf(this);
+                        if (index !== -1)
+                            spriteListRegister.splice(index, 1);
+                
+                        this.nodeChaingunRobotActivating.remove();
+                    }
+                }, 1000);
+
                 // Actve l'animation
                 this.TiledImageChaingunRobotActivating.setPaused(false);
 
@@ -69,9 +71,9 @@ export class ChaingunRobotActivating{
 
                 // Réinitialise la valeur outDestroyedRobot à false
                 ChaingunRobotDestroyed.setOutDestroyedRobot(false);
-
+ 
                 viewRobot = true;
-                
+
                 return false;
             }
 

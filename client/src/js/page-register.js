@@ -13,7 +13,7 @@ window.addEventListener("load", () => {
     if (document.querySelector(".register-main")) {
 
         // Positions
-		let marcoX = 300;
+		let marcoX = window.innerWidth  * 0.2;
 		let marcoY = window.innerHeight - 180;
 
         // Fait apparaître Marco de manière progressive en CSS

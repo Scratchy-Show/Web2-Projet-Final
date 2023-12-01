@@ -85,6 +85,19 @@ export class MarcoBreathe {
                 this.nodeMarcoBreathe.remove();
             }
         }
+
+        /********** CHAT.HTML **********/
+        if (document.querySelector(".chat-main")) {
+
+            this.nodeMarcoBreathe.classList.add("marco-hidden");
+
+            document.querySelector("#chat").append(this.nodeMarcoBreathe);
+
+            // Marco apparaît
+            setTimeout(() => {
+                this.nodeMarcoBreathe.classList.remove("marco-hidden");
+            }, 500);
+        }
     }
 
     tick () {

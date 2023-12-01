@@ -29,7 +29,7 @@ export class MarcoWakeUp {
         this.TiledImageMarcoWakeUp.changeMinMaxInterval(0, 18);
 
         // Positions
-		this.marcoX = 300;
+		this.marcoX = window.innerWidth  * 0.4;
 		this.marcoY = window.innerHeight - 180;
 
 		/********** Stop l'animation une fois le fomulaire affiché **********/

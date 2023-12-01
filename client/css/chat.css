@@ -1,0 +1,25 @@
+/********** BACKGROUND **********/
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background-image: url("../img/maps/map3.png");
+    background-size: cover;
+}
+
+/********** LIEN DECONNEXION **********/
+#sign-out-btn{
+    text-decoration: none;
+}
+
+/********** MARCO **********/
+.marco-hidden {
+    opacity: 0;
+}
+
+.marco-breathe {
+    transition: opacity 1s ease-in-out;
+}

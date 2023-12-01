@@ -6,7 +6,7 @@ export class ChaingunRobotWaiting{
     constructor(x, y) {
         let colCount = 16;
         let rowCount = 1;
-        let refreshDelay = 100;//
+        let refreshDelay = 100;
         let loopColumns = true;
         let scale = 1.7;
         this.robotX = x + x;
