@@ -66,7 +66,6 @@ const memberListUpdate = members => {
         // Ajouter la div au conteneur
         parentNode.appendChild(nodeMember);
     });
-
 }
 
 const tick = () => {
