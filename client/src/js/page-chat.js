@@ -46,6 +46,10 @@ const newMessage = (fromUser, message, isPrivate) => {
 // À chaque 2-3 secondes, cette fonction est appelée. Il faudra donc mettre à jour la liste des membres
 // connectés dans votre interface.
 const memberListUpdate = members => {
+
+    // Trie la liste des membres en ordre alphabétique (insensible à la casse)
+    members.sort((x, y) => x.localeCompare(y, { sensitivity: 'base' }));
+
     console.log(members);
 
     let parentNode = document.querySelector('.members-container');

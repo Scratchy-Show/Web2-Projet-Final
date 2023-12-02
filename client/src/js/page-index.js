@@ -60,8 +60,8 @@ window.addEventListener("load", () => {
 
         /********** Soumission du formulaire **********/
         document.querySelector("form").onsubmit = function () {
-
-           /* localStorage.setItem('username', usernameValue);*/
+           /* let usernameInput = document.getElementById('username').value;
+            localStorage.setItem('username', usernameValue);*/
 
             return signin(this);
         }

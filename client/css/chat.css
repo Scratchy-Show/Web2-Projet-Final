@@ -1,9 +1,5 @@
 /********** GENERAL **********/
-.chat-main {
-    background: linear-gradient(180deg, rgba(255, 236, 122, 1) 0%, rgba(246, 128, 31, 1) 43%, rgba(238, 43, 36, 1) 100%);
-    -webkit-background-clip: text;
-    color: transparent;
-}
+
 
 /********** BACKGROUND **********/
 .background-image {
@@ -17,10 +13,112 @@
     background-size: cover;
 }
 
-/********** LIEN DECONNEXION **********/
-#sign-out-btn{
-    text-decoration: none;
+/********** CHAT **********/
+#chat {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 450px;
+    margin: 50px auto;
+    border-radius: 5px;
+    font-size: 18px;
 }
+
+.chat-container,
+.textarea-container textarea {
+    background-color: rgba(50, 50, 50, 0.9);
+}
+
+.chat-container {
+    display: flex;
+    height: 85%;
+    border: 3px groove darkorange;
+}
+
+.messages-container,
+.members-container {
+    background: linear-gradient(180deg, rgba(255, 236, 122, 1) 0%, rgba(246, 128, 31, 1) 43%, rgba(238, 43, 36, 1) 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.members-container {
+    height: 100%;
+    width: 25%;
+    padding: 5px;
+    border-right: 1px dashed darkorange;
+}
+
+.messages-container {
+    height: 100%;
+    width: 75%;
+    padding: 5px;
+}
+
+.member,
+.msg {
+    font-size: 0.90em;
+}
+
+.member {
+    padding: 3px 0px;
+    hyphens: auto;
+}
+
+.msg {
+    padding: 3px;
+    word-wrap: break-word;
+}
+
+.textarea-container {
+    height: 20%;
+    padding-top: 10px;
+}
+
+.textarea-container textarea {
+    height: 100%;
+    width: 100%;
+    border: 0px;
+    font-size: 18px;
+    color: white;
+    border: 3px double darkorange;
+}
+
+.textarea-container textarea:focus {
+    outline: none;
+    border: 2px dotted darkorange;
+}
+
+/********** LIEN DECONNEXION **********/
+.link-container {
+    padding-top: 15px;
+    text-align: end;
+}
+
+#sign-out-btn {
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px rgba(50, 50, 50, 0.9);
+    color: darkorange;
+    background-color: darkred;
+    cursor: pointer;
+  }
+  
+  #sign-out-btn:hover {
+    color: whitesmoke;
+    background-color: red;
+}
+  
+  #sign-out-btn:active {
+    background-color: #B22205;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
 
 /********** MARCO **********/
 .marco-hidden {

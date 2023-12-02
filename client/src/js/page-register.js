@@ -61,8 +61,8 @@ window.addEventListener("load", () => {
         /********** Soumission du formulaire **********/
         document.querySelector("form").onsubmit = function () {
 
-            let usernameValue = document.getElementById('username').value;
-            localStorage.setItem('username', usernameValue);
+           /* let usernameValue = document.getElementById('username').value;
+            localStorage.setItem('username', usernameValue);*/
             
             return register(this);
         }
