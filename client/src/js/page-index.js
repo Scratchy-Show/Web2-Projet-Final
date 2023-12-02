@@ -8,6 +8,12 @@ window.addEventListener("load", () => {
     // Evite que le code soit exécuter en dehors de la page index.html
     if (document.querySelector(".index-main")) {
 
+        /********** Affiche le username dans le champ du formulaire **********/
+        let usernameInput = document.getElementById('username');
+        let storedUsername = localStorage.getItem('username');
+
+        usernameInput.value = storedUsername || ''; 
+
         /********** Descendre la section title **********/
         let title = document.getElementById("title");
         let posYUp = -300; // Position de départ
@@ -54,6 +60,9 @@ window.addEventListener("load", () => {
 
         /********** Soumission du formulaire **********/
         document.querySelector("form").onsubmit = function () {
+
+           /* localStorage.setItem('username', usernameValue);*/
+
             return signin(this);
         }
 

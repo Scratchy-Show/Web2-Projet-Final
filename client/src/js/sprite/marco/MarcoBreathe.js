@@ -91,7 +91,7 @@ export class MarcoBreathe {
 
             this.nodeMarcoBreathe.classList.add("marco-hidden");
 
-            document.querySelector("#chat").append(this.nodeMarcoBreathe);
+            document.querySelector(".chat-main").append(this.nodeMarcoBreathe);
 
             // Marco apparaît
             setTimeout(() => {
@@ -101,17 +101,20 @@ export class MarcoBreathe {
     }
 
     tick () {
-        // Marco marche en même temps que le background se déplace
-        if (backgroundMove) {
-            // Si MarcoWalk n'existe pas
-            if (!document.querySelector(".marco-walk") && backgroundMove)
-                spriteListRegister.push(new MarcoWalk(this.marcoX, this.marcoY));
+        /********** REGISTER.HTML **********/
+        if (document.querySelector(".register-main")) {
+            // Marco marche en même temps que le background se déplace
+            if (backgroundMove) {
+                // Si MarcoWalk n'existe pas
+                if (!document.querySelector(".marco-walk") && backgroundMove)
+                    spriteListRegister.push(new MarcoWalk(this.marcoX, this.marcoY));
 
-            let index = spriteListRegister.indexOf(this);
-            if (index !== -1)
-                spriteListRegister.splice(index, 1);
+                let index = spriteListRegister.indexOf(this);
+                if (index !== -1)
+                    spriteListRegister.splice(index, 1);
 
-            this.nodeMarcoBreathe.remove();
+                this.nodeMarcoBreathe.remove();
+            }
         }
 
         this.TiledImageMarcoBreathe.tick(this.marcoX, this.marcoY);

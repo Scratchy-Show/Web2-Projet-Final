@@ -17,7 +17,9 @@ window.addEventListener("load", () => {
 
     /********** Envoie du message **********/
     document.querySelector("textarea").onkeyup = function (evt) {
-        sendMessage(evt, this)
+        if (evt.key === "Enter") {
+            sendMessage(evt, this)
+        }
     };
 
     /********** Déconnexion **********/
@@ -31,12 +33,36 @@ window.addEventListener("load", () => {
 // Lorsqu'un nouveau message doit être affiché à l'écran, cette fonction est appelée
 const newMessage = (fromUser, message, isPrivate) => {
     console.log(fromUser, message, isPrivate);
+
+    let nodeMessage = document.createElement("div");
+    nodeMessage.classList.add("msg");
+
+    nodeMessage.innerHTML = "<span style='font-weight: bold;'>" + fromUser + "</span>" + " : " + message;
+
+    let parentNode = document.querySelector(".messages-container");
+    parentNode.append(nodeMessage);
 }
 
 // À chaque 2-3 secondes, cette fonction est appelée. Il faudra donc mettre à jour la liste des membres
 // connectés dans votre interface.
 const memberListUpdate = members => {
     console.log(members);
+
+    let parentNode = document.querySelector('.members-container');
+
+    // Effacer la liste actuelle
+    parentNode.innerHTML = '';
+
+    // Parcourir le tableau des membres
+    members.forEach(member => {
+        let nodeMember = document.createElement('div');
+        nodeMember.classList.add('member');
+        nodeMember.textContent = member;
+
+        // Ajouter la div au conteneur
+        parentNode.appendChild(nodeMember);
+    });
+
 }
 
 const tick = () => {
