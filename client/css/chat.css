@@ -6,8 +6,15 @@
     width: 100%;
     height: 100%;
     z-index: -10;
-    background-image: url("../img/maps/map3.png");
     background-size: cover;
+}
+
+.trees {
+    background-image: url("../img/maps/map3.png");
+}
+
+.space {
+    background-image: url("../img/maps/map4.png");
 }
 
 /********** CHAT **********/
@@ -34,9 +41,10 @@
 
 .messages-container,
 .members-container {
-    background: linear-gradient(180deg, rgba(255, 236, 122, 1) 0%, rgba(246, 128, 31, 1) 43%, rgba(238, 43, 36, 1) 100%);
+    overflow-y: auto;
+    /*background: linear-gradient(180deg, rgba(255, 236, 122, 1) 0%, rgba(246, 128, 31, 1) 43%, rgba(238, 43, 36, 1) 100%);
     color: transparent;
-    -webkit-background-clip: text;
+    -webkit-background-clip: text;*/
     background-clip: text;
     text-fill-color: transparent;
 }
@@ -91,7 +99,7 @@
 /********** LIEN DECONNEXION **********/
 .link-container {
     padding-top: 15px;
-    text-align: end;
+    text-align: center;
 }
 
 #sign-out-btn {

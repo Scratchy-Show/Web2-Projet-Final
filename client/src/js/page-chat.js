@@ -1,11 +1,15 @@
 import {registerCallbacks, sendMessage, signout, chatMessageLoop} from './chat-api';
 import { MarcoBreathe } from './sprite/marco/MarcoBreathe.js';
+import { UefoFlying } from './sprite/uefo/UefoFlying';
 
 export let spriteListChat = [];
+let spaceOn = false;
+let nodeBackground;
 
 window.addEventListener("load", () => {
     // Evite que le code soit exécuter en dehors de la page index.html
     if (document.querySelector(".chat-main")) {
+        nodeBackground = document.querySelector(".background-image");
 
         // Positions
 		let marcoX = window.innerWidth  * 0.2;
@@ -68,7 +72,31 @@ const memberListUpdate = members => {
     });
 }
 
+/********** Barre d'espace pressée **********/
+document.addEventListener("keydown", e => {
+	if (e.code == "Space")  {
+        if (spaceOn) {
+            spaceOn = false;
+        }
+        else {
+            spaceOn = true;
+        }
+        
+    }
+});
+
 const tick = () => {
+
+    // Modifie l'environnement graphique
+    if (spaceOn) {
+        nodeBackground.classList.add("space");
+        nodeBackground.classList.remove("trees");
+        spriteListChat.push(new UefoFlying());
+    } else  {
+        nodeBackground.classList.add("trees");
+        nodeBackground.classList.remove("space");
+    }
+
     for (let i = 0; i < spriteListChat.length; i++) {
         let alive = spriteListChat[i].tick();
 
