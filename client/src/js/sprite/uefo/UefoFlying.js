@@ -1,16 +1,17 @@
 import { TiledImage } from '../../TiledImage.js';
 
 export class UefoFlying{
-    constructor() {
+    constructor(memberName) {
         let colCount = 16;
         let rowCount = 1;
         let refreshDelay = 100;
         let loopColumns = true;
         let scale = 1;
+        this.memberName = memberName;
 
         /***** SPRITESHEET - UEFO FLYING  *****/
         this.nodeUefoFlying = document.createElement("div");
-        this.nodeUefoFlying.classList.add("uefo-flying");
+        this.nodeUefoFlying.classList.add("uefo-flying-" + memberName);
         document.querySelector(".chat-main").append(this.nodeUefoFlying);
 
         this.TiledImageUefoFlying = new TiledImage(

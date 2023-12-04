@@ -3,6 +3,7 @@ import { MarcoBreathe } from './sprite/marco/MarcoBreathe.js';
 import { UefoFlying } from './sprite/uefo/UefoFlying';
 
 export let spriteListChat = [];
+let currentMembers = [];
 let spaceOn = false;
 let nodeBackground;
 
@@ -10,6 +11,7 @@ window.addEventListener("load", () => {
     // Evite que le code soit exécuter en dehors de la page index.html
     if (document.querySelector(".chat-main")) {
         nodeBackground = document.querySelector(".background-image");
+        nodeBackground.classList.add("trees");
 
         // Positions
 		let marcoX = window.innerWidth  * 0.2;
@@ -54,49 +56,74 @@ const memberListUpdate = members => {
     // Trie la liste des membres en ordre alphabétique (insensible à la casse)
     members.sort((x, y) => x.localeCompare(y, { sensitivity: 'base' }));
 
-    console.log(members);
-
     let parentNode = document.querySelector('.members-container');
 
-    // Effacer la liste actuelle
+    // Efface la liste des membres dans le DOM
     parentNode.innerHTML = '';
 
-    // Parcourir le tableau des membres
+    // Parcour le tableau des membres
     members.forEach(member => {
         let nodeMember = document.createElement('div');
         nodeMember.classList.add('member');
         nodeMember.textContent = member;
-
-        // Ajouter la div au conteneur
         parentNode.appendChild(nodeMember);
     });
+
+    // Ajoute des UefoFlying pour chaque membres connectés
+    if (spaceOn) {
+        members.forEach(member => {
+            if (!currentMembers.includes(member)) {
+
+                let uefoX = Math.random() * window.innerWidth;
+                let uefoY = Math.random() * window.innerHeight;
+
+                let uefoSprite = new UefoFlying(member);
+                uefoSprite.robotX = uefoX;
+                uefoSprite.robotY = uefoY;
+
+                spriteListChat.push(uefoSprite);
+
+                // Ajoute le membre au tableau temporaire
+                currentMembers.push(member);
+                console.log(currentMembers);
+            }
+        });
+
+        // Vérifie si des membres doivent être retirés
+        currentMembers.forEach(member => {
+            if (!members.includes(member)) {
+
+                let indexToRemove = spriteListChat.findIndex(sprite => sprite.memberName === member);
+                
+                if (indexToRemove !== -1) {
+                    document.querySelector(".uefo-flying-" + member).remove();
+                    spriteListChat.splice(indexToRemove, 1);
+                }
+
+                // Retire le membre du tableau temporaire
+                currentMembers.splice(currentMembers.indexOf(member), 1);
+                console.log(currentMembers);
+            }
+        });
+    }
 }
 
-/********** Barre d'espace pressée **********/
+/********** Barre d'espace appuyée **********/
 document.addEventListener("keydown", e => {
-	if (e.code == "Space")  {
+    if (e.code == "Space") {
+        spaceOn = !spaceOn;
+
         if (spaceOn) {
-            spaceOn = false;
+            nodeBackground.classList.add("space");
+            nodeBackground.classList.remove("trees");
+        } else {
+            nodeBackground.classList.add("trees");
+            nodeBackground.classList.remove("space");
         }
-        else {
-            spaceOn = true;
-        }
-        
     }
 });
 
 const tick = () => {
-
-    // Modifie l'environnement graphique
-    if (spaceOn) {
-        nodeBackground.classList.add("space");
-        nodeBackground.classList.remove("trees");
-        spriteListChat.push(new UefoFlying());
-    } else  {
-        nodeBackground.classList.add("trees");
-        nodeBackground.classList.remove("space");
-    }
-
     for (let i = 0; i < spriteListChat.length; i++) {
         let alive = spriteListChat[i].tick();
 
