@@ -1,4 +1,5 @@
 import { TiledImage } from '../../TiledImage.js';
+import { spriteListChat } from '../../page-chat.js';
 
 export class UefoDestroyed{
     constructor(posX ,posY, memberName) {
@@ -30,6 +31,15 @@ export class UefoDestroyed{
 
         // Stop la boucle
         this.TiledImageUefoDestroyed.setLooped(false);
+
+        // Délais de l'animation
+        setTimeout(() => {
+            let index = spriteListChat.indexOf(this);
+            if (index !== -1)
+                spriteListChat.splice(index, 1);
+
+            this.nodeUefoDestroyed.remove();
+        }, 2300);
     }
 
     tick () {

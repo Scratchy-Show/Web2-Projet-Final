@@ -57,7 +57,6 @@ const newMessage = (fromUser, message, isPrivate) => {
         });
     }
 
-
     let nodeMessage = document.createElement("div");
     nodeMessage.classList.add("msg");
 
