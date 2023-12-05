@@ -1,5 +1,6 @@
 import { TiledImage } from '../../TiledImage.js';
 import { spriteListChat } from '../../page-chat.js';
+import { UefoFlying } from '../uefo/UefoFlying.js';
 
 export class UefoDestroyed{
     constructor(posX ,posY, memberName) {
@@ -39,6 +40,19 @@ export class UefoDestroyed{
                 spriteListChat.splice(index, 1);
 
             this.nodeUefoDestroyed.remove();
+
+            setTimeout(() => {
+                // Recrée un UefoFlying après la destruction
+                let newUefoFlyingX = Math.random() * window.innerWidth;
+                let newUefoFlyingY = Math.random() * window.innerHeight;
+                let newUefoFlying = new UefoFlying(memberName);
+                
+                newUefoFlying.x = newUefoFlyingX;
+                newUefoFlying.y = newUefoFlyingY;
+
+                spriteListChat.push(newUefoFlying);
+            }, 1000);
+
         }, 2300);
     }
 

@@ -39,8 +39,6 @@ window.addEventListener("load", () => {
 
 // Lorsqu'un nouveau message doit être affiché à l'écran, cette fonction est appelée
 const newMessage = (fromUser, message, isPrivate) => {
-    console.log(fromUser, message, isPrivate);
-
     if (message.toLowerCase() === "kill") {
         // Remplace tous les UefoFlying
         spriteListChat.forEach(sprite => {
