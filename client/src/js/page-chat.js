@@ -1,5 +1,6 @@
 import {registerCallbacks, sendMessage, signout, chatMessageLoop} from './chat-api';
 import { MarcoBreathe } from './sprite/marco/MarcoBreathe.js';
+import { MarcoSpace } from './sprite/marco/MarcoSpace.js';
 import { UefoFlying } from './sprite/uefo/UefoFlying.js';
 import { UefoDestroyed } from './sprite/uefo/UefoDestroyed.js';
 
@@ -7,6 +8,8 @@ export let spriteListChat = [];
 let currentMembers = [];
 let spaceOn = false;
 let nodeBackground;
+let marcoX ;
+let marcoY ;
 
 window.addEventListener("load", () => {
     // Evite que le code soit exécuter en dehors de la page index.html
@@ -15,8 +18,8 @@ window.addEventListener("load", () => {
         nodeBackground.classList.add("trees");
 
         // Positions
-		let marcoX = window.innerWidth  * 0.2;
-		let marcoY = window.innerHeight - 180;
+		marcoX = window.innerWidth  * 0.2;
+		marcoY = window.innerHeight - 180;
 
         // Fait apparaître Marco de manière progressive en CSS
         spriteListChat.push(new MarcoBreathe(marcoX, marcoY));
@@ -141,9 +144,26 @@ document.addEventListener("keydown", e => {
         if (spaceOn) {
             nodeBackground.classList.add("space");
             nodeBackground.classList.remove("trees");
+            document.querySelector(".marco-breathe").remove();
+
+            // Exclue toutes les instances de MarcoBreathe
+            spriteListChat = spriteListChat.filter(sprite => !(sprite instanceof MarcoBreathe));
+
+            // Ajoute MarcoSpace
+            if (!spriteListChat.some(sprite => sprite instanceof MarcoSpace))
+                spriteListChat.push(new MarcoSpace(marcoX, marcoY));
         } else {
             nodeBackground.classList.add("trees");
             nodeBackground.classList.remove("space");
+            document.querySelector(".marco-space").remove();
+
+            // Exclue toutes les instances de MarcoSpace
+            spriteListChat = spriteListChat.filter(sprite => !(sprite instanceof MarcoSpace));
+
+            // Ajoute MarcoBreathe
+            if (!spriteListChat.some(sprite => sprite instanceof MarcoBreathe))
+                // Fait apparaître Marco de manière progressive en CSS
+                spriteListChat.push(new MarcoBreathe(marcoX, marcoY));
         }
     }
 });
