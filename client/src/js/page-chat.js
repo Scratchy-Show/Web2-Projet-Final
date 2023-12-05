@@ -53,6 +53,9 @@ const newMessage = (fromUser, message, isPrivate) => {
                 let index = spriteListChat.indexOf(sprite);
                 spriteListChat.splice(index, 1, uefoDestroyed);
 
+                if (document.querySelector(".member-name"))
+                document.querySelector(".member-name").remove();
+
                 sprite.nodeUefoFlying.remove();
             }
         });
@@ -159,6 +162,27 @@ document.addEventListener("keydown", e => {
 
             // Exclue toutes les instances de MarcoSpace
             spriteListChat = spriteListChat.filter(sprite => !(sprite instanceof MarcoSpace));
+
+            // Supprime la div .member-name associé à chaque UefoFlying et le sprite
+            spriteListChat.forEach(sprite => {
+                if (sprite instanceof UefoFlying) {
+                    if (document.querySelector(".member-name"))
+                        document.querySelector(".member-name").remove();
+                    sprite.nodeUefoFlying.remove();
+                }
+            });
+
+            // Supprime les UefoFlying et les éléments .member-name associés
+            for (let i = spriteListChat.length - 1; i >= 0; i--) {
+                if (spriteListChat[i] instanceof UefoFlying) {
+                
+                    if (document.querySelector(".member-name"))
+                        document.querySelector(".member-name").remove();
+                    
+                    spriteListChat[i].nodeUefoFlying.remove();
+                    spriteListChat.splice(i, 1);
+                }
+            }
 
             // Ajoute MarcoBreathe
             if (!spriteListChat.some(sprite => sprite instanceof MarcoBreathe))

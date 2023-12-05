@@ -22,6 +22,17 @@ export class UefoFlying{
         this.nodeUefoFlying.style.left = this.x + "px";
         document.querySelector(".chat-main").append(this.nodeUefoFlying);
 
+        // Pour afficher le nom du membre
+        this.nodeMemberName = document.createElement("div");
+        this.nodeMemberName.classList.add("member-name");
+        this.nodeMemberName.textContent = memberName;
+        this.nodeMemberName.style.zIndex = -10;
+        this.nodeMemberName.style.position = "absolute";
+        this.nodeMemberName.style.top = (this.y + this.nodeUefoFlying.offsetHeight) + "px";
+        this.nodeMemberName.style.left = this.x + "px";
+        this.nodeMemberName.style.color = "white";
+        document.querySelector(".chat-main").append(this.nodeMemberName);
+
         this.TiledImageUefoFlying = new TiledImage(
             "./img/uefo/uefo-flying.png",
             colCount,
@@ -55,6 +66,10 @@ export class UefoFlying{
         // Met à jour la position
         this.nodeUefoFlying.style.top = this.y + "px";
         this.nodeUefoFlying.style.left = this.x + "px";
+
+        // Met à jour la position du nom du membre
+        this.nodeMemberName.style.top = (this.y + this.nodeUefoFlying.offsetHeight) + "px";
+        this.nodeMemberName.style.left = this.x + "px";
 
         this.TiledImageUefoFlying.tick(newX, newY);
 
