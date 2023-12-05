@@ -85,7 +85,6 @@ const memberListUpdate = members => {
 
                 // Ajoute le membre au tableau temporaire
                 currentMembers.push(member);
-                console.log(currentMembers);
             }
         });
 
@@ -102,9 +101,20 @@ const memberListUpdate = members => {
 
                 // Retire le membre du tableau temporaire
                 currentMembers.splice(currentMembers.indexOf(member), 1);
-                console.log(currentMembers);
             }
         });
+    } else {
+        // Supprime toutes les instances de UefoFlying, sauf MarcoBreathe
+        spriteListChat.forEach(sprite => {
+            if (!(sprite instanceof MarcoBreathe))
+                sprite.nodeUefoFlying.remove();
+        });
+
+        // Filtre la liste des sprites pour ne conserver que MarcoBreathe
+        spriteListChat = spriteListChat.filter(sprite => sprite instanceof MarcoBreathe);
+
+        // Vide le tableau temporaire
+        currentMembers = [];
     }
 }
 
