@@ -65,6 +65,7 @@ const newMessage = (fromUser, message, isPrivate) => {
     nodeMessage.classList.add("msg");
 
     nodeMessage.innerHTML = "<span style='font-weight: bold;'>" + fromUser + "</span>" + " : " + message;
+    nodeMessage.innerHTML = "<span style='font-weight: bold;'>" + fromUser + " :</span> <span style='font-family: arial;'>" + message + "</span>";
 
     let parentNode = document.querySelector(".messages-container");
     parentNode.append(nodeMessage);
