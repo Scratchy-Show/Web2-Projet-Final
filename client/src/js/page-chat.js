@@ -1,6 +1,7 @@
 import {registerCallbacks, sendMessage, signout, chatMessageLoop} from './chat-api';
 import { MarcoBreathe } from './sprite/marco/MarcoBreathe.js';
-import { UefoFlying } from './sprite/uefo/UefoFlying';
+import { UefoFlying } from './sprite/uefo/UefoFlying.js';
+import { UefoDestroyed } from './sprite/uefo/UefoDestroyed.js';
 
 export let spriteListChat = [];
 let currentMembers = [];
@@ -39,6 +40,23 @@ window.addEventListener("load", () => {
 // Lorsqu'un nouveau message doit être affiché à l'écran, cette fonction est appelée
 const newMessage = (fromUser, message, isPrivate) => {
     console.log(fromUser, message, isPrivate);
+
+    if (message.toLowerCase() === "kill") {
+        // Remplace tous les UefoFlying
+        spriteListChat.forEach(sprite => {
+            if (sprite instanceof UefoFlying) {
+                // Crée une nouvelle instance d'UefoDestroyed à la position de l'UefoFlying actuel
+                let uefoDestroyed = new UefoDestroyed(sprite.x, sprite.y, sprite.memberName);
+
+                // Remplace l'UefoFlying par l'UefoDestroyed dans la liste et dans le DOM
+                let index = spriteListChat.indexOf(sprite);
+                spriteListChat.splice(index, 1, uefoDestroyed);
+
+                sprite.nodeUefoFlying.remove();
+            }
+        });
+    }
+
 
     let nodeMessage = document.createElement("div");
     nodeMessage.classList.add("msg");
