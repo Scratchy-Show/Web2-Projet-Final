@@ -42,7 +42,7 @@ window.addEventListener("load", () => {
 
 // Lorsqu'un nouveau message doit être affiché à l'écran, cette fonction est appelée
 const newMessage = (fromUser, message, isPrivate) => {
-    if (message.toLowerCase() === "killall") {
+    if (message.trim().toLowerCase() === "killall") {
         // Remplace tous les UefoFlying
         spriteListChat.forEach(sprite => {
             if (sprite instanceof UefoFlying) {
@@ -59,7 +59,7 @@ const newMessage = (fromUser, message, isPrivate) => {
                 sprite.nodeUefoFlying.remove();
             }
         });
-    } else if (message.toLowerCase() === "kill") {
+    } else if (message.trim().toLowerCase() === "kill") {
         // Détruit l'Uefo du membre
         let uefoIndex = spriteListChat.findIndex(sprite => sprite instanceof UefoFlying && sprite.memberName === fromUser);
 
@@ -146,9 +146,14 @@ const memberListUpdate = members => {
     } else {
         // Supprime toutes les instances de UefoFlying, sauf MarcoBreathe
         spriteListChat.forEach(sprite => {
-            if (!(sprite instanceof MarcoBreathe))
+            if (sprite instanceof UefoFlying) {
+                if (document.querySelector(".uefo-flying-" + sprite.memberName)) {
+                    document.querySelector(".uefo-flying-" + sprite.memberName).remove();
+                    document.querySelector(".member-name-" + sprite.memberName).remove();
+                }
                 sprite.nodeUefoFlying.remove();
-        });
+            }
+        }); 
 
         // Filtre la liste des sprites pour ne conserver que MarcoBreathe
         spriteListChat = spriteListChat.filter(sprite => sprite instanceof MarcoBreathe);
@@ -202,6 +207,12 @@ document.addEventListener("keydown", e => {
                     spriteListChat.splice(i, 1);
                 }
             }
+
+            // Supprime toutes les instances de UefoDestroyed
+            spriteListChat.forEach(sprite => {
+                if (sprite instanceof UefoDestroyed)
+                    sprite.nodeUefoDestroyed.remove();
+            });
 
             // Ajoute MarcoBreathe
             if (!spriteListChat.some(sprite => sprite instanceof MarcoBreathe))
