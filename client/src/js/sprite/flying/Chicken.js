@@ -13,7 +13,6 @@ export class Chicken{
         /***** SPRITESHEET - CHICKEN  *****/
         this.nodeChicken = document.createElement("div");
         this.nodeChicken.classList.add("chicken-" + id);
-        document.querySelector("main").append(this.nodeChicken);
 
         this.TiledImageChicken = new TiledImage(
             "./img/flying/chicken.png",
@@ -25,6 +24,14 @@ export class Chicken{
             this.nodeChicken
         );
         this.TiledImageChicken.changeMinMaxInterval(0, 5);
+
+        /********** INDEX.HTML **********/
+        if (document.querySelector(".index-main"))
+            document.querySelector(".index-main").append(this.nodeChicken);
+
+        /********** CHAT.HTML **********/
+        if (document.querySelector(".chat-main"))
+            document.querySelector(".chat-main").append(this.nodeChicken);
 
         // Positionne les poulets de manière aléatoire sur 1/5 du haut de l'écran
         this.posX = Math.random() * window.innerWidth;

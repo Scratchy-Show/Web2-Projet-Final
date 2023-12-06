@@ -3,6 +3,7 @@ import { MarcoBreathe } from './sprite/marco/MarcoBreathe.js';
 import { MarcoSpace } from './sprite/marco/MarcoSpace.js';
 import { UefoFlying } from './sprite/uefo/UefoFlying.js';
 import { UefoDestroyed } from './sprite/uefo/UefoDestroyed.js';
+import { Chicken } from './sprite/flying/Chicken.js';
 
 export let spriteListChat = [];
 let currentMembers = [];
@@ -155,8 +156,8 @@ const memberListUpdate = members => {
             }
         }); 
 
-        // Filtre la liste des sprites pour ne conserver que MarcoBreathe
-        spriteListChat = spriteListChat.filter(sprite => sprite instanceof MarcoBreathe);
+        // Filtre la liste des sprites pour ne conserver que MarcoBreathe et Chicken
+        spriteListChat = spriteListChat.filter(sprite => sprite instanceof MarcoBreathe || sprite instanceof Chicken);
 
         // Vide le tableau temporaire
         currentMembers = [];
@@ -222,6 +223,14 @@ document.addEventListener("keydown", e => {
     }
 });
 
+/********** Touche p appuyée **********/
+let chickenId = 1;
+document.addEventListener("keypress", (event) => {
+    if (event.key === "p") {
+        spriteListChat.push(new Chicken(chickenId++));
+    }
+});
+
 const tick = () => {
     for (let i = 0; i < spriteListChat.length; i++) {
         let alive = spriteListChat[i].tick();
@@ -231,6 +240,6 @@ const tick = () => {
             i--;
         }
     }
-
+console.log(spriteListChat);
     window.requestAnimationFrame(tick);
 }
