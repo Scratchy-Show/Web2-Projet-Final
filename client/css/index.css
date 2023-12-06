@@ -133,12 +133,12 @@ form {
 .container-form .content button:hover {
     color: black;
     background-color: #FDCD01;
+    cursor: pointer;
 }
 
 .redirection {
     display: none;
     position: relative;
-    top: 65vh;
     text-align: center;
     z-index: 20;
     color: #FDCD01;
