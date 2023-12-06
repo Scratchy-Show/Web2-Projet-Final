@@ -144,6 +144,7 @@ const memberListUpdate = members => {
                 currentMembers.splice(currentMembers.indexOf(member), 1);
             }
         });
+        
     } else {
         // Supprime toutes les instances de UefoFlying, sauf MarcoBreathe
         spriteListChat.forEach(sprite => {
@@ -180,6 +181,15 @@ document.addEventListener("keydown", e => {
             // Ajoute MarcoSpace
             if (!spriteListChat.some(sprite => sprite instanceof MarcoSpace))
                 spriteListChat.push(new MarcoSpace(marcoX, marcoY));
+
+            // Supprime les instances de Chicken
+            spriteListChat = spriteListChat.filter(sprite => {
+                if (sprite instanceof Chicken) {
+                    sprite.nodeChicken.remove();
+                    return false; // Ne conserve pas les instances de Chicken dans la liste
+                }
+                return true; // Conserve les autres sprites dans la liste
+            });
         } else {
             nodeBackground.classList.add("trees");
             nodeBackground.classList.remove("space");
@@ -227,7 +237,8 @@ document.addEventListener("keydown", e => {
 let chickenId = 1;
 document.addEventListener("keypress", (event) => {
     if (event.key === "p") {
-        spriteListChat.push(new Chicken(chickenId++));
+        if (!spaceOn)
+            spriteListChat.push(new Chicken(chickenId++));
     }
 });
 
