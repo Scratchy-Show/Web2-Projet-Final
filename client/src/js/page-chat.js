@@ -42,7 +42,7 @@ window.addEventListener("load", () => {
 
 // Lorsqu'un nouveau message doit être affiché à l'écran, cette fonction est appelée
 const newMessage = (fromUser, message, isPrivate) => {
-    if (message.toLowerCase() === "kill") {
+    if (message.toLowerCase() === "killall") {
         // Remplace tous les UefoFlying
         spriteListChat.forEach(sprite => {
             if (sprite instanceof UefoFlying) {
@@ -53,12 +53,30 @@ const newMessage = (fromUser, message, isPrivate) => {
                 let index = spriteListChat.indexOf(sprite);
                 spriteListChat.splice(index, 1, uefoDestroyed);
 
-                if (document.querySelector(".member-name"))
-                document.querySelector(".member-name").remove();
+                if (document.querySelector(".member-name-" + sprite.memberName))
+                document.querySelector(".member-name-" + sprite.memberName).remove();
 
                 sprite.nodeUefoFlying.remove();
             }
         });
+    } else if (message.toLowerCase() === "kill") {
+        // Détruit l'Uefo du membre
+        let uefoIndex = spriteListChat.findIndex(sprite => sprite instanceof UefoFlying && sprite.memberName === fromUser);
+
+        if (uefoIndex !== -1) {
+            let uefoSprite = spriteListChat[uefoIndex];
+    
+            // Crée une nouvelle instance d'UefoDestroyed à la position de l'UefoFlying actuel
+            let uefoDestroyed = new UefoDestroyed(uefoSprite.x, uefoSprite.y, uefoSprite.memberName);
+    
+            // Remplace l'UefoFlying par l'UefoDestroyed dans la liste et dans le DOM
+            spriteListChat.splice(uefoIndex, 1, uefoDestroyed);
+    
+            if (document.querySelector(".member-name-" + uefoSprite.memberName))
+                document.querySelector(".member-name-" + uefoSprite.memberName).remove();
+    
+            uefoSprite.nodeUefoFlying.remove();
+        }
     }
 
     let nodeMessage = document.createElement("div");
@@ -176,9 +194,9 @@ document.addEventListener("keydown", e => {
             // Supprime les UefoFlying et les éléments .member-name associés
             for (let i = spriteListChat.length - 1; i >= 0; i--) {
                 if (spriteListChat[i] instanceof UefoFlying) {
-                
-                    if (document.querySelector(".member-name"))
-                        document.querySelector(".member-name").remove();
+
+                    if (document.querySelector(".member-name-" + spriteListChat[i].memberName))
+                        document.querySelector(".member-name-" + spriteListChat[i].memberName).remove();
                     
                     spriteListChat[i].nodeUefoFlying.remove();
                     spriteListChat.splice(i, 1);

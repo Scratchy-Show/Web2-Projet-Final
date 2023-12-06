@@ -24,7 +24,7 @@ export class UefoFlying{
 
         // Pour afficher le nom du membre
         this.nodeMemberName = document.createElement("div");
-        this.nodeMemberName.classList.add("member-name");
+        this.nodeMemberName.classList.add("member-name-" + memberName);
         this.nodeMemberName.textContent = memberName;
         this.nodeMemberName.style.zIndex = -10;
         this.nodeMemberName.style.position = "absolute";
