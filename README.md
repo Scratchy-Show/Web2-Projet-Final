@@ -23,8 +23,7 @@ L'animation présente dans la page index pour Flying :
 - Chicken
 
 ## Evènement souris
-- **onclick**
-
+- onclick
 Un clic sur MarcoBreathe le tue et le transforme en zombie.
 ---
 ---
