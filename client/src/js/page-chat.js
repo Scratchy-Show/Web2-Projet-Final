@@ -20,7 +20,7 @@ window.addEventListener("load", () => {
 
         // Positions
 		marcoX = window.innerWidth  * 0.2;
-		marcoY = window.innerHeight - 180;
+		marcoY = window.innerHeight - 100;
 
         // Fait apparaître Marco de manière progressive en CSS
         spriteListChat.push(new MarcoBreathe(marcoX, marcoY));

@@ -14,13 +14,14 @@ window.addEventListener("load", () => {
 
         // Positions
 		let marcoX = window.innerWidth  * 0.2;
-		let marcoY = window.innerHeight - 180;
+		let marcoY = window.innerHeight - 100;
+        let robotY = window.innerHeight - 150;
 
         // Fait apparaître Marco de manière progressive en CSS
         spriteListRegister.push(new MarcoBreathe(marcoX, marcoY));
 
         // Affiche le robot
-        spriteListRegister.push(new ChaingunRobotActivating(marcoX, marcoY));
+        spriteListRegister.push(new ChaingunRobotActivating(marcoX, robotY));
  
         /********** Déplace le background **********/
         // Synchronisé avec MarcoWalk

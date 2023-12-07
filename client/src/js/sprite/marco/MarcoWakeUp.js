@@ -30,7 +30,7 @@ export class MarcoWakeUp {
 
         // Positions
 		this.marcoX = window.innerWidth  * 0.4;
-		this.marcoY = window.innerHeight - 180;
+		this.marcoY = window.innerHeight - 100;
 
 		/********** Stop l'animation une fois le fomulaire affiché **********/
 		document.querySelector("form").addEventListener("formDisplay", () => {

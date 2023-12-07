@@ -55,7 +55,7 @@ export class ChaingunRobotDestroyed{
                 outDestroyedRobot = true;
                 
                 // Affiche de nouveau le robot
-                spriteListRegister.push(new ChaingunRobotActivating(this.marcoX, this.marcoY));
+                spriteListRegister.push(new ChaingunRobotActivating(this.marcoX, this.robotY));
                 return false;
             }
 

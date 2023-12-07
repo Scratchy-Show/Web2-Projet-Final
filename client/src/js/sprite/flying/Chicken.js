@@ -30,8 +30,10 @@ export class Chicken{
             document.querySelector(".index-main").append(this.nodeChicken);
 
         /********** CHAT.HTML **********/
-        if (document.querySelector(".chat-main"))
-            document.querySelector(".chat-main").append(this.nodeChicken);
+        if (document.querySelector(".chat-main")) {
+            this.nodeChicken.style.zIndex = -10;
+            document.querySelector(".chat-main").append(this.nodeChicken);  
+        }
 
         // Positionne les poulets de manière aléatoire sur 1/5 du haut de l'écran
         this.posX = Math.random() * window.innerWidth;

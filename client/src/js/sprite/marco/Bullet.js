@@ -13,8 +13,8 @@ export class Bullet{
         this.speed = 8;
         this.marcoX = marcoX;
         this.marcoY = marcoY;
-        this.bulletX = marcoX + 100;
-        this.bulletY = marcoY + 33;
+        this.bulletX = marcoX + 55;
+        this.bulletY = marcoY + 20;
 
         /***** SPRITESHEET - BULLET  *****/
         this.nodeBullet = document.createElement("div");
