@@ -42,12 +42,8 @@
 .messages-container,
 .members-container {
     overflow-y: auto;
-    /*background: linear-gradient(180deg, rgba(255, 236, 122, 1) 0%, rgba(246, 128, 31, 1) 43%, rgba(238, 43, 36, 1) 100%);
-    color: transparent;
-    -webkit-background-clip: text;*/
     color: darkorange;
     background-clip: text;
-    text-fill-color: transparent;
 }
 
 .members-container {
