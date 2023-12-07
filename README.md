@@ -51,7 +51,6 @@ Les animations présentes dans la page index pour le robot Chaingun :
 
 ## Evènement souris
 **onclick**
-Un clic sur MarcoBreathe et Marco tire.
 
 **onmouseover**
 
