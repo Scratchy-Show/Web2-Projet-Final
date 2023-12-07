@@ -24,6 +24,7 @@ L'animation présente dans la page index pour Flying :
 
 ## Evènement souris
 - onclick
+
 Un clic sur MarcoBreathe le tue et le transforme en zombie.
 ---
 ---
