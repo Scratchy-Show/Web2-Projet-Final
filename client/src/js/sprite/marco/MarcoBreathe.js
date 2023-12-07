@@ -8,7 +8,6 @@ import { MarcoWalk } from './MarcoWalk.js';
 import { MarcoPullBreathe } from './MarcoPullBreathe.js';
 import { MarcoKillForward } from './MarcoKillForward.js';
 
-
 export class MarcoBreathe {
     constructor(marcoX, marcoY) {
         let colCount = 6;

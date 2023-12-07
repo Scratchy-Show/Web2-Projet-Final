@@ -38,7 +38,8 @@ export class SoldierFlees {
         this.soldierX += this.speed * this.direction;
 
         // Si le soldat est sorti de l'écran, il est réinitialisé comme SoldierRun
-        if ((this.direction === 1 && this.soldierX > window.innerWidth + 100) ||(this.direction === -1 && this.soldierX < -100))
+        if ((this.direction === 1 && this.soldierX > window.innerWidth + 100) ||
+            (this.direction === -1 && this.soldierX < -100))
         {
             setTimeout(() => {
                 spriteListIndex.push(new SoldierRun(this.marcoX, this.soldierY));

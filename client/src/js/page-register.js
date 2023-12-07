@@ -58,7 +58,6 @@ window.addEventListener("load", () => {
             moveBackground();
         }, 2050);
         
-
         /********** Soumission du formulaire **********/
         document.querySelector("form").onsubmit = function () {
             return register(this);

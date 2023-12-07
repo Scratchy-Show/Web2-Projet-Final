@@ -9,7 +9,6 @@ export class MarcoSpace{
         let scale = 1.7;
         this.posX = posX;
         this.posY = posY;
-
         this.speed = 1.5;
         this.speedX = Math.abs(this.speed);
         this.speedY = (Math.random() > 0.5 ? 1 : -1) * this.speed; // +y ou -y

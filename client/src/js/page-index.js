@@ -54,9 +54,8 @@ window.addEventListener("load", () => {
         }
 
         /********** Ajoute des poulets **********/
-        for (let i = 0; i < 3; i++) {
+        for (let i = 0; i < 3; i++)
             spriteListIndex.push(new Chicken(i));
-        } 
 
         /********** Soumission du formulaire **********/
         document.querySelector("form").onsubmit = function () {

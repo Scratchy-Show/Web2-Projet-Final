@@ -28,9 +28,8 @@ window.addEventListener("load", () => {
 
     /********** Envoie du message **********/
     document.querySelector("textarea").onkeyup = function (evt) {
-        if (evt.key === "Enter") {
+        if (evt.key === "Enter")
             sendMessage(evt, this)
-        }
     };
 
     /********** Déconnexion **********/
@@ -55,7 +54,7 @@ const newMessage = (fromUser, message, isPrivate) => {
                 spriteListChat.splice(index, 1, uefoDestroyed);
 
                 if (document.querySelector(".member-name-" + sprite.memberName))
-                document.querySelector(".member-name-" + sprite.memberName).remove();
+                    document.querySelector(".member-name-" + sprite.memberName).remove();
 
                 sprite.nodeUefoFlying.remove();
             }
@@ -210,10 +209,8 @@ document.addEventListener("keydown", e => {
             // Supprime les UefoFlying et les éléments .member-name associés
             for (let i = spriteListChat.length - 1; i >= 0; i--) {
                 if (spriteListChat[i] instanceof UefoFlying) {
-
                     if (document.querySelector(".member-name-" + spriteListChat[i].memberName))
                         document.querySelector(".member-name-" + spriteListChat[i].memberName).remove();
-                    
                     spriteListChat[i].nodeUefoFlying.remove();
                     spriteListChat.splice(i, 1);
                 }
@@ -251,6 +248,5 @@ const tick = () => {
             i--;
         }
     }
-console.log(spriteListChat);
     window.requestAnimationFrame(tick);
 }
