@@ -1,8 +1,8 @@
 # Web2-Projet-Final
-Chat
-Programmeur : Couret Alexandre
+- Projet : Chat
+- Programmeur : Couret Alexandre
 ---
-
+---
 ## PAGE INDEX
 **Animations Marco**
 - MarcoWakeUp
