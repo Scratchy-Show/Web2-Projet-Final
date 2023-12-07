@@ -79,9 +79,7 @@ Les animations présentes dans la page index pour Uefo :
 
 ### Comportements générés
 - **kill**
-Uniquement si SpaceOn=true, la commande "kill" détruit l'UEFO de celui qui envoie la commande.
 - **killall**
-Uniquement si SpaceOn=true, la commande "killall" détruit tous les UEFOs.
 
 ### Résumé
 Cette page possède deux états:
