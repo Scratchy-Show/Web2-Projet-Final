@@ -50,9 +50,8 @@ Les animations présentes dans la page index pour le robot Chaingun :
 - ChaingunRobotDestroyed
 
 ## Evènement souris
-**onclick**
-
-**onmouseover**
+- **onmouseover**
+- **onclick**
 
 ## Résumé
 Marco apparaît (MarcoBreathe) avec une animation CSS. Il marche (MarcoWalk) et en même temps, le background se déplace. Au survol de la souris lorsque Marco marche, il tire (MarcoPullWalk). Après un certain temps, un robot apparaît de la droite. Il s'active (ChaingunRobotActivating) et attend (ChaingunRobotWaiting). Dès que Marco le voit, il s'arrête (MarcoBreathe) et le background s'arrête également.
