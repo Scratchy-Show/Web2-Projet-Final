@@ -1,6 +1,7 @@
 # Web2-Projet-Final
 - Projet : Chat
 - Programmeur : Couret Alexandre
+
 ---
 ---
 
@@ -31,25 +32,35 @@ Marco se réveille (MarcoWakeUp), puis il respire (MarcoBreathe). En cliquant de
 Pendant ce temps, des soldats arrivent en courant (SoldierRun) aléatoirement de gauche ou de droite. À une certaine distance de Marco, ils ralentissent (SoldierSlowMotion), attendent (SoldierWaiting) puis prennent peur (SoldierFear) et fuient (SoldierFlees). Une fois sortis de l'écran, ils sont supprimés et réapparaissent en courant de nouveau de gauche ou de droite.
 
 En parallèle, des poulets volent au-dessus à des vitesses différentes. Une fois sortis de l'écran, ils sont supprimés et réapparaissent de nouveau.
+
 ---
 ---
 
 ## PAGE REGISTER
-**Animations Marco**
+Les animations présentes dans la page index pour Marco :
 - MarcoBreathe
 - MarcoPullBreathe
 - MarcoWalk
 - MarcoPullWalk
 - Bullet
-**Animations Chaingun**
+
+Les animations présentes dans la page index pour le robot Chaingun :
 - ChaingunRobotActivating
 - ChaingunRobotWaiting
 - ChaingunRobotDestroyed
-## Evènements souris
+
+## Evènement souris
 **onclick**
 Un clic sur MarcoBreathe et Marco tire.
+
 **onmouseover**
-Au survol de MarcoWalk, Marco tire en marchant.
+
+## Résumé
+Marco apparaît (MarcoBreathe) avec une animation CSS. Il marche (MarcoWalk) et en même temps, le background se déplace. Au survol de la souris lorsque Marco marche, il tire (MarcoPullWalk). Après un certain temps, un robot apparaît de la droite. Il s'active (ChaingunRobotActivating) et attend (ChaingunRobotWaiting). Dès que Marco le voit, il s'arrête (MarcoBreathe) et le background s'arrête également.
+
+Au clic de la souris sur Marco qui attend, il tire (MarcoPullBreathe) et une balle (Bullet) se déplace jusqu'à toucher le robot. Le robot perd en opacité jusqu'à être totalement transparent et donc détruit (ChaingunRobotDestroyed). Une fois détruit, Marco marche de nouveau (MarcoWalk), le background se déplace aussi, ainsi que le robot détruit jusqu'à sortir de l'écran. À ce moment-là, il est supprimé, et un nouveau robot apparaît de la droite (ChaingunRobotActivating).
+
+---
 ---
 
 ## PAGE CHAT
