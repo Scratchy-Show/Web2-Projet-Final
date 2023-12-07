@@ -5,24 +5,28 @@
 ---
 ## PAGE INDEX
 **Animations Marco**
-- MarcoWakeUp
-- MarcoBreathe
-- MarcoKillForward
-- MarcoZombie
-- MarcoZombieWaiting
+Les animations présentes dans la page index pour Marco :
+    - MarcoWakeUp
+    - MarcoBreathe
+    - MarcoKillForward
+    - MarcoZombie
+    - MarcoZombieWaiting
 **Animations Soldier**
-- SoldierRun
-- SoldierSlowMotion
-- SoldierWaiting
-- SoldierFear
-- SoldierFlees
+Les animations présentes dans la page index pour Soldier :
+    - SoldierRun
+    - SoldierSlowMotion
+    - SoldierWaiting
+    - SoldierFear
+    - SoldierFlees
 **Animation Flying**
-- Chicken
+L'animation présente dans la page index pour Flying :
+    - Chicken
+---
 ## Evènements
 **onclick**
 Un clic sur MarcoBreathe le tue et le transforme en zombie.
 ---
-
+---
 ## PAGE REGISTER
 **Animations Marco**
 - MarcoBreathe
