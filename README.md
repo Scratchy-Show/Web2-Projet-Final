@@ -4,7 +4,7 @@
 ---
 ---
 
-## PAGE INDEX
+## Page index
 Les animations présentes dans la page index pour Marco :
 - MarcoWakeUp
 - MarcoBreathe
@@ -23,9 +23,14 @@ L'animation présente dans la page index pour Flying :
 - Chicken
 
 ## Evènement souris
-- onclick
+- **onclick**
 
-Un clic sur MarcoBreathe le tue et le transforme en zombie.
+## Résumé
+Marco se réveille (MarcoWakeUp), puis il respire (MarcoBreathe). En cliquant dessus, il meurt (MarcoKillForward) mais revient en zombie (MarcoZombie) et attend (MarcoZombieWaiting).
+
+Pendant ce temps, des soldats arrivent en courant (SoldierRun) aléatoirement de gauche ou de droite. À une certaine distance de Marco, ils ralentissent (SoldierSlowMotion), attendent (SoldierWaiting) puis prennent peur (SoldierFear) et fuient (SoldierFlees). Une fois sortis de l'écran, ils sont supprimés et réapparaissent en courant de nouveau de gauche ou de droite.
+
+En parallèle, des poulets volent au-dessus à des vitesses différentes. Une fois sortis de l'écran, ils sont supprimés et réapparaissent de nouveau.
 ---
 ---
 
