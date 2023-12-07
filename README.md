@@ -4,21 +4,20 @@
 ---
 ---
 ## PAGE INDEX
-**Animations Marco**
 Les animations présentes dans la page index pour Marco :
 - MarcoWakeUp
 - MarcoBreathe
 - MarcoKillForward
 - MarcoZombie
 - MarcoZombieWaiting
-**Animations Soldier**
+
 Les animations présentes dans la page index pour Soldier :
 - SoldierRun
 - SoldierSlowMotion
 - SoldierWaiting
 - SoldierFear
 - SoldierFlees
-**Animation Flying**
+
 L'animation présente dans la page index pour Flying :
 - Chicken
 ---
