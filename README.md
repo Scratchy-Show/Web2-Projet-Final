@@ -3,6 +3,7 @@
 - Programmeur : Couret Alexandre
 ---
 ---
+
 ## PAGE INDEX
 Les animations présentes dans la page index pour Marco :
 - MarcoWakeUp
@@ -20,12 +21,13 @@ Les animations présentes dans la page index pour Soldier :
 
 L'animation présente dans la page index pour Flying :
 - Chicken
----
-## Evènements
+
+## Evènement souris
 **onclick**
 Un clic sur MarcoBreathe le tue et le transforme en zombie.
 ---
 ---
+
 ## PAGE REGISTER
 **Animations Marco**
 - MarcoBreathe
