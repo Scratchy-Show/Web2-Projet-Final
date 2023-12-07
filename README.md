@@ -62,22 +62,32 @@ Au clic de la souris sur Marco qui attend, il tire (MarcoPullBreathe) et une bal
 ---
 
 ## PAGE CHAT
-**Animations Marco**
+Les animations présentes dans la page index pour Marco :
 - MarcoBreathe
 - MarcoSpace
-**Animation Flying**
+
+L'animation présente dans la page index pour Flying :
 - Chicken
-**Animation UEFO**
+
+Les animations présentes dans la page index pour Uefo :
 - UefoFlying
 - UefoDestroyed
-## Evènements clavier
-**keypress**
-Quand la touche "p" reste appuyée, des poulets apparaissent. Cela est possible uniquement si SpaceOn=false.
-**keydown**
-Appuyer sur la barre d'espace change le background, l'animation de Marco et un UefoFlying est attribué pour chaque membre connecté. Cela est possible uniquement si SpaceOn=true.
-## Comportements générés
-**kill**
+
+### Evènements clavier
+- **keypress**
+- **keydown**
+
+### Comportements générés
+- **kill**
 Uniquement si SpaceOn=true, la commande "kill" détruit l'UEFO de celui qui envoie la commande.
-**killall**
+- **killall**
 Uniquement si SpaceOn=true, la commande "killall" détruit tous les UEFOs.
----
+
+### Résumé
+Cette page possède deux états:
+
+SpaceOn = false
+Marco apparaît (MarcoBreathe) avec une animation CSS. Lorsqu'on reste appuyé sur la touche "p", des poulets apparaissent (Chicken) au-dessus de Marco et volent. Une fois sortis de l'écran, ils réapparaissent de l'autre côté. En appuyant sur la barre d'espace, cela bascule SpaceOn à true. Les poulets sont supprimés ainsi que Marco.
+
+SpaceOn = true
+Le background est remplacé et Marco apparaît avec un scaphandre (MarcoSpace). Des Uefos apparaissent (UefoFlying) pour chaque membre connecté avec leur "username" en dessous. Les Uefos et Marco se déplacent de manière aléatoire dans le navigateur. Si un membre se déconnecte, l'Uefo qui lui est attribué disparaît. Inversement, un membre se connecte, un Uefo apparaît. Si un membre envoie le message "kill", il détruit son propre Uefo (UefoDestroyed), mais un nouveau vaisseau réapparaît quelques secondes après. Si un membre envoie le message "killall", tous les Uefos sont détruits. Là aussi, quelques secondes plus tard, ils réapparaissent. En appuyant sur la barre d'espace, cela bascule SpaceOn à false. Les Uefos sont supprimés ainsi que MarcoSpace.
